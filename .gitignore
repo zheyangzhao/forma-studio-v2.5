@@ -1,0 +1,27 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.app
+*.exe
+.DS_Store
+studio-kit-contents/
+Design-prompt-studio-kit.zip
+workflow-kit/bootstrap/.claude/hooks/__pycache__/
+workflow-kit/scripts/__pycache__/
+
+# 本地狀態（不同步）
+.backup/
+workflow-kit/state/active-step.json
+workflow-kit/state/circuit_breaker.json
+
+# API Key 絕對不能 commit
+*.env
+.env*
+secrets.json
+config.local.*
+api-keys.*
