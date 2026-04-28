@@ -9,7 +9,7 @@
 | 模組 | 版本 | 狀態 |
 |---|---|---|
 | SDD v2.5 規格書 | ✅ 定稿 | `docs/SDD-v2.5-integration-upgrade.md`（1005 行） |
-| Web 版升級（Tier 1） | ❌ 未開始 | prompt gallery / SKILL.md / craft.md 皆待實作 |
+| Web 版升級（Tier 1） | 🟢 Sprint 1 完成 | gallery 66 條 + SKILL.md + craft.md + HTML loader 全到位 |
 | 桌面版升級（Tier 2） | ❌ 未開始 | edit endpoint / quality 撥盤 / DESIGN.md 待實作 |
 | v3.0 觀望項（Tier 3） | ⏸ Backlog | Comment mode / 多格式匯出 |
 
@@ -17,14 +17,21 @@
 
 ## 上次做到哪裡（2026-04-28）
 
-### v2.5 啟動完成
+### Tier 1 Sprint 1 完成
+- **資料層**：`web/prompt-library/` 12 個 JSON、66 條 prompt（schema 含 industries / source / size / pixel）
+- **Skill 文件**：`skills/forma-studio/SKILL.md` 完整版 + `references/craft.md` 19 節品質檢查層
+- **Web 版**：`web/forma-studio.html` 從 v1.1 移植 + gallery loader 接通（feature flag `ENABLE_PROMPT_GALLERY=true`）
+- **Build 工具**：`tools/build_gallery.py`（上游解析）+ `tools/inline_gallery.py`（HTML 注入）
+- **Playwright 驗證**：FORMA_GALLERY 全域可讀、0 error
+- 詳見 `DEVLOG.md` 最新一筆
+
+### v2.5 啟動完成（更早）
 - 從 [`zheyangzhao/forma-studio`](https://github.com/zheyangzhao/forma-studio)（v1.0 / v1.1 凍結）拆分出本 repo
-- 最小繼承：`CLAUDE.md`（已更新 v2.5）、`.gitignore`、`docs/SDD-v2.5-integration-upgrade.md`、`docs/huashu-design-SKILL.md`
-- 建立目錄骨架：`web/prompt-library/`、`skills/forma-studio/references/`、`desktop/app/`
-- 寫入 `README.md`、`LICENSE`（MIT）、`SKILL.md` 草稿、`craft.md` 草稿
+- 最小繼承策略：CLAUDE.md（重寫 v2.5）、.gitignore、SDD-v2.5、huashu-design-SKILL.md
 
 ### v1.0 凍結保護
 - 原 repo 已推送至 GitHub（main + tags：`v1.0-stable`, `v1.1`, `v2.0-spec-frozen`）
+- 原 README 已加 v2.5 pointer
 - 原 `web/forma-studio.html` 與 SDD-desktop-v2.0 永久備份於凍結 repo
 
 ---
@@ -33,25 +40,28 @@
 
 ### 優先順序
 
-按 SDD 章節七的 Sprint 規劃：
+#### Sprint 1 verification（Sprint 1 已完成資料層 + loader，UI 接線下一步做）
 
-#### Sprint 1：Tier 1 Web 版升級（建議 2-3 週）
+**Step 6**：把 gallery 資料接到 4 區塊 UI
+- 在 React 內建 `useGallery()` hook，`industries` chip 改成跨行業選項（律師 / 教師 / 會計師 / 設計 / 行銷 / ...）
+- 區塊 3「製圖方式」子頁籤展示對應類別 prompts（從 FORMA_GALLERY 拉，按 industries 過濾）
+- 點 prompt 後注入 textarea 作 starter
+- 用 Playwright 跑 11 步互動測試（同 v1.0 的 health-check）
 
-**Step 1**：篩選 `gpt_image_2_skill` 的 162 條 prompt
-- 從 [上游 repo](https://github.com/wuyoscar/gpt_image_2_skill/tree/main/skills/gpt-image/references) 抓 12 個適用類別的 `gallery-*.md`
-- 適用：UI/UX Mockups、Typography & Posters、Infographics、Brand Systems、Edit Endpoint Showcase、Photography、Product & Food、Data Visualization、Architecture & Interior、Technical Illustration、Cinematic & Animation
-- 排除：Anime/Manga、Tattoo、Gaming HUD、Cinematic Film References
-- 預期保留：50–80 條
+**Step 7**：實際 SKILL 安裝測試
+- 在另一台 / 另一個 Claude Code 跑 `/plugin install forma-studio@zheyangzhao`
+- 驗證 SKILL.md frontmatter 被正確讀取
+- 同步 Codex `$skill-installer install` 流程
 
-**Step 2**：產出 `web/prompt-library/*.json`（按類別分檔）+ `gallery-index.json`
-- 每筆 entry 必含 `id` / `category` / `prompt` / `size` / `quality` / `source`
-- 加 `industries` 欄位標註適用行業
+#### Sprint 2：Tier 2 PyQt6 桌面版（建議 3-4 週）
 
-**Step 3**：完成 `skills/forma-studio/SKILL.md`（從草稿擴充）
-
-**Step 4**：完成 `skills/forma-studio/references/craft.md`（合併 19 節 + #0 + 反 AI Slop + 5-10-2-8）
-
-**Step 5**：把 v1.0 的 `web/forma-studio.html` 移植進來，加 prompt gallery 載入器（feature flag `ENABLE_PROMPT_GALLERY`）
+按 SDD 章節 4.1 / 4.2 / 4.3 順序：
+1. `desktop/app/api/openai_client.py`：擴充 `client.images.edit()` 支援
+2. `desktop/app/widgets/quality_dial.py`：成本撥盤
+3. `desktop/app/widgets/reference_drop_zone.py` + `mask_uploader.py`：edit UI
+4. `desktop/app/widgets/image_edit_panel.py`：整合上述三者
+5. `desktop/app/utils/design_memory.py`：DESIGN.md parser
+6. `desktop/app/pages/brand_settings_tab.py`：DESIGN.md GUI 編輯器
 
 #### Sprint 2：Tier 2 PyQt6 桌面版（建議 3-4 週）
 
