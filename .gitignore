@@ -25,3 +25,7 @@ workflow-kit/state/circuit_breaker.json
 secrets.json
 config.local.*
 api-keys.*
+
+# v2.5 不採用 workflow-kit；保留 state 檔僅為 hook 相容
+workflow-kit/state/active-step.json
+workflow-kit/state/deadlock-tracker.json

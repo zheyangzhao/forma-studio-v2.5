@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "photography",
+  "category": "Photography",
+  "title_zh": "商業攝影",
+  "industries": [
+    "marketing",
+    "real_estate",
+    "hospitality",
+    "retail",
+    "general"
+  ],
+  "use_cases": [
+    "產品攝影",
+    "空間氛圍",
+    "場景情境"
+  ],
+  "source": {
+    "repo": "wuyoscar/gpt_image_2_skill",
+    "license": "CC BY 4.0",
+    "url": "https://github.com/wuyoscar/gpt_image_2_skill/blob/main/skills/gpt-image/references/gallery-photography.md"
+  },
+  "count": 4,
+  "prompts": [
+    {
+      "id": "photography-063",
+      "no": 63,
+      "title": "RAW iPhone — 42nd Street subway",
+      "size": "landscape",
+      "pixel": "1536x1024",
+      "credit": "Author: @WolfRiccardo",
+      "prompt": "Create a completely RAW quality, unprocessed, unedited image with full iPhone camera quality. A subway station in USA, a momentary blur. The subway is in motion. In front of the subway, there is an elderly woman and man."
+    },
+    {
+      "id": "photography-064",
+      "no": 64,
+      "title": "Handwritten notebook flatlay",
+      "size": "landscape",
+      "pixel": "1536x1024",
+      "credit": "Author: @patrickassale",
+      "prompt": "Amateur photo of an open notebook lying flat, filled with handwritten notes in black ballpoint pen. The handwriting is casual and slightly messy, like personal notes, natural imperfections, crossed out words, underlined headings. Shot from slightly above, natural daylight from a window, no flash. Casual desk setting, shot on iPhone"
+    },
+    {
+      "id": "photography-065",
+      "no": 65,
+      "title": "Chess board mid-tournament game",
+      "size": "landscape",
+      "pixel": "1536x1024",
+      "credit": "Author: @EddGorenstein",
+      "prompt": "Generate a photorealistic photo of a chess board during the middle of a serious tournament game. Top-down three-quarter view, shallow depth of field. All pieces clearly distinguishable and correctly shaped: pawns, rooks, knights (with horse-head silhouette), bishops (mitre tops), queens, kings (with cross finials). The position is mid-game: several pieces already captured and set aside to the right of the board, some pawns advanced, pieces clustered around the central files d4-e5-f4.\n\nMaterials: polished wooden staunton-style pieces — dark side in rosewood, light side in maple. Board made of inlaid maple and walnut squares. A digital chess clock sits to the left showing \"00:14:28 / 00:08:47\". Soft overhead tournament lighting, blurred tournament-hall background. All pieces accurate, no mutants, no extra sets."
+    },
+    {
+      "id": "photography-066",
+      "no": 66,
+      "title": "360° equirectangular jungle panorama",
+      "size": "wide",
+      "pixel": "2048x1152",
+      "credit": "Author: @AIimagined",
+      "prompt": "360 equirectangular panorama of a dense prehistoric jungle scene. Cinematic detail. Strict 2:1 aspect ratio (e.g. 4096×2048). No distortion at the seams — the left and right edges must wrap seamlessly.\n\nScene: towering fern-covered trees, shafts of golden sunlight piercing the canopy, a slow river winding through the centre foreground, mist rising off the water. Scattered dinosaurs of varied species — a grazing Brachiosaurus neck visible among distant tree canopy, two small Gallimimus drinking at the river's edge, a Triceratops in the background underbrush. Tropical birds in flight, butterflies, dragonflies over the water.\n\nLighting: late-afternoon golden hour, warm directional backlight through the canopy. High dynamic range, slight atmospheric haze. Equirectangular projection suitable for spherical / 360 viewers."
+    }
+  ]
+}

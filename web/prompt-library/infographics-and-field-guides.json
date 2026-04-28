@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "slug": "infographics-and-field-guides",
+  "category": "Infographics & Field Guides",
+  "title_zh": "資訊圖表與圖鑑",
+  "industries": [
+    "education",
+    "legal",
+    "accounting",
+    "research",
+    "general"
+  ],
+  "use_cases": [
+    "流程圖",
+    "年報視覺",
+    "教材插圖",
+    "研究摘要圖"
+  ],
+  "source": {
+    "repo": "wuyoscar/gpt_image_2_skill",
+    "license": "CC BY 4.0",
+    "url": "https://github.com/wuyoscar/gpt_image_2_skill/blob/main/skills/gpt-image/references/gallery-infographics-and-field-guides.md"
+  },
+  "count": 8,
+  "prompts": [
+    {
+      "id": "infographics-and-field-guides-067",
+      "no": 67,
+      "title": "Song Dynasty social-media feed",
+      "size": "portrait",
+      "pixel": "1024x1536",
+      "credit": "Author: @Panda20230902",
+      "prompt": "\"Song Dynasty People's Moments\"/\"SONG DYNASTY SOCIAL MEDIA FEED\", Ancient and modern time-travel humor fusion interface design style, The image simulates a mobile phone social media interface, but the content is entirely Song Dynasty scenes, The avatar is a portrait of a Song Dynasty literati, Username \"Su Dongpo SuShi_Official\", Post content \"Just arrived in Huangzhou, demoted but feeling okay. Made Dongpo pork myself today, tastes amazing, recipe attached:\", The attached image is a close-up of Dongpo pork in Gongbi painting style, Likes list \"Huang Tingjian, Qin Guan, Fo Yin etc. 126 people\", Comments section \"Wang Anshi: Hehe\" \"Sima Guang: Still the same taste\", Interface elements such as the like icon are replaced with Song Dynasty patterns, The status bar shows \"Great Song Mobile 5G\" and \"Third Year of Yuanfeng\", The color scheme is mobile phone dark mode paired with elegant Song Dynasty tones, A masterpiece of fun collision between history and social media"
+    },
+    {
+      "id": "infographics-and-field-guides-068",
+      "no": 68,
+      "title": "Museum catalog disassembly infographic (唐代襦裙)",
+      "size": "portrait",
+      "pixel": "1024x1536",
+      "credit": "Author: @MrLarus",
+      "prompt": "Please automatically generate a \"museum catalog-style Chinese disassembly infographic\" based on the [Subject].\n\nThe entire image is required to combine a realistic main visual, structural disassembly, Chinese annotations, material descriptions, pattern meanings, color meanings, and core feature summaries. You need to automatically determine the most appropriate main subject, clothing system, artifact structure, era style, key components, material craftsmanship, color scheme, and layout structure based on the [Subject], and the user does not need to provide any other information.\n\nThe overall style should be: national museum exhibition boards, historical clothing catalogs, and cultural/museum thematic infographics, rather than ordinary posters, ancient-style portraits, e-commerce detail pages, or anime illustrations. The background uses paper textures such as off-white, silk white, and light tea color, making the overall look premium, restrained, professional, and collectible.\n\nThe layout is fixed as:\n- Top: Chinese main title + subtitle + introduction\n- Left: Structural disassembly area, with Chinese lead lines annotating key components, accompanied by close-up details\n- Upper right: Material / craftsmanship / texture area, displaying real texture samples with descriptions\n- Middle right: Pattern / color / meaning area, displaying the main color palette, pattern samples, and cultural explanations\n- Bottom: Dressing order / composition flowchart + core feature summary\n\nIf the subject is suitable for character display, use a full-body standing posture of a real person as the central subject; if it is more suitable for artifacts or single structures, change it to a central subject disassembly diagram, but the overall form remains a complete Chinese infographic. All text must be in Simplified Chinese, clear, neat, and readable, without garbled characters, typos, English, or pinyin.\n\nAvoid: poster feel, studio portrait feel, e-commerce feel, anime feel, cosplay feel, random annotations, incorrect structures, blurry text, fake materials, excessive decoration."
+    },
+    {
+      "id": "infographics-and-field-guides-069",
+      "no": 69,
+      "title": "Encyclopedia field guide (Giant Panda)",
+      "size": "portrait",
+      "pixel": "1024x1536",
+      "credit": "Author: @MrLarus",
+      "prompt": "Generate a high-quality vertical encyclopedia-style infographic for [topic].\n\nThis should not be a normal poster or a simple illustration. It should feel like a modular educational infographic that combines the clarity of a field guide, the structure of an encyclopedia page, the polish of a lifestyle knowledge card, and the shareability of a strong social-media explainer.\n\nThe image should include:\n- a clear and appealing main visual of the topic\n- several enlarged detail callouts\n- multiple rounded modular information sections\n- strong title hierarchy and highlighted key labels\n- concise but information-rich educational content\n- visual scoring, quick takeaways, or a Top 5 module\n\nAdapt the content sections automatically based on the topic. Useful categories include: basic profile, classification, appearance, habits or ecology, formation mechanism or structure, growth or usage conditions, care or maintenance advice, risks and cautions, suitable users or use cases, pros and cons, and a quick scorecard.\n\nVisual requirements: use a clean light background, soft colors, subtle shadows, refined small icons, rounded information cards, and neat layout. The information density should be high but not crowded, and the final image should feel publishable, collectible, and repeatable as a knowledge-card format rather than an advertisement.\n\nDo not make it look like a commercial promo poster. Emphasize knowledge organization, modular information, and a field-guide presentation."
+    },
+    {
+      "id": "infographics-and-field-guides-070",
+      "no": 70,
+      "title": "Weekend Seoul travel guide poster",
+      "size": "portrait",
+      "pixel": "1024x1536",
+      "credit": "Author: Unknown",
+      "prompt": "Generate a polished one-page Chinese travel guide poster for a fast weekend trip from Nanjing to Seoul in May. Use LARGE highly legible Chinese text, short phrases only, and no paragraph blocks. Focus on shopping, skincare, and a stylish Seongsu-dong route. Layout: big title, 4 modules only (行程 / 区域推荐 / 购物清单 / 美妆护肤), each with 2 to 4 short bullet points, plus a small cute route map with icons. Clean editorial infographic style, soft pastel colors, neat spacing, high readability, modern Xiaohongshu travel card aesthetic. Avoid tiny text, avoid dense explanations, avoid garbled characters."
+    },
+    {
+      "id": "infographics-and-field-guides-071",
+      "no": 71,
+      "title": "Modular encyclopedia infographic card",
+      "size": "portrait",
+      "pixel": "1024x1536",
+      "credit": "Author: Unknown",
+      "prompt": "Generate a high-quality vertical science encyclopedia card about \"雪豹 Snow Leopard\". It should feel like a collectible modular knowledge infographic rather than a normal poster. Include one beautiful hero illustration, several zoomed-in detail callouts, rounded information modules, clear title hierarchy, compact encyclopedia content, rating cards, and a Top 5 facts module. Suggested sections: basic profile, habitat, appearance, hunting behavior, conservation risks, climate adaptation, suitable environment, and quick scorecard. Visual style: clean light background, soft palette, subtle shadows, refined icons, rounded info boxes, dense but readable information, polished editorial layout, high collection value."
+    },
+    {
+      "id": "infographics-and-field-guides-072",
+      "no": 72,
+      "title": "Xiaohongshu cooking tutorial card",
+      "size": "portrait",
+      "pixel": "1024x1536",
+      "credit": "Author: Unknown",
+      "prompt": "Create a Xiaohongshu-style viral cooking tutorial image in a 3:4 vertical layout for homemade scallion oil noodles. Cozy home-cooking vibe, warm inviting lifestyle aesthetic, 4 to 6 step grid layout, clean spacing, realistic food photography, soft natural lighting, slight film tone, warm color grading, visible oil sheen, steam, sauce texture, and hands interacting with the food. Add small Chinese annotations such as 切葱, 熬油, 拌面, 出锅. Avoid overcrowding or excessive text."
+    },
+    {
+      "id": "infographics-and-field-guides-073",
+      "no": 73,
+      "title": "Camera styles reference board for iPhone photographers",
+      "size": "landscape",
+      "pixel": "1536x1024",
+      "credit": "Author: @Vtrivedy10",
+      "prompt": "Make me an image in 35 mm film style of a diagram showing the knowledge of camera styles, presets, and what to know about them as an aspiring iPhone photographer that wants to pursue their passion. Build it as a rich multi-panel reference board with labeled sections for film looks, digital presets, portrait approaches, street photography styles, color temperature, grain, contrast, flash, framing, and common mistakes. Each camera and preset style should appear in its actual style instead of being rendered uniformly in one style. Make it visually dense, highly educational, beautifully designed, and easy to scan."
+    },
+    {
+      "id": "infographics-and-field-guides-074",
+      "no": 74,
+      "title": "Chinese endangered-animal infographic",
+      "size": "portrait",
+      "pixel": "1024x1536",
+      "credit": "Author: @billtheinvestor",
+      "prompt": "Create a visually rich infographic in Chinese about an endangered animal. Start by finding one online, research its habitat, diet, and unique traits. Present information through annotated visuals and structured callouts, not generic sections. Style it like a bold graphic illustration: a detailed, photorealistic central animal as the focal point, supported by diagrams, callouts, and concise text elements. Use clean backgrounds and a mix of photorealism with strong graphic elements (shapes, icons, color blocking) in a layered composition. Make it dense, tactile, and professionally authored."
+    }
+  ]
+}

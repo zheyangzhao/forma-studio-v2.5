@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "source": {
+    "repo": "wuyoscar/gpt_image_2_skill",
+    "license": "CC BY 4.0",
+    "base_url": "https://github.com/wuyoscar/gpt_image_2_skill/blob/main/skills/gpt-image/references"
+  },
+  "categories": [
+    {
+      "slug": "ui-ux-mockups",
+      "category": "UI/UX Mockups",
+      "title_zh": "UI/UX 介面設計",
+      "industries": [
+        "product",
+        "design",
+        "marketing",
+        "legal",
+        "education",
+        "general"
+      ],
+      "use_cases": [
+        "產品 mockup",
+        "提案展示",
+        "App 概念稿",
+        "Web 平台 demo"
+      ],
+      "count": 5,
+      "file": "ui-ux-mockups.json"
+    },
+    {
+      "slug": "typography-and-posters",
+      "category": "Typography & Posters",
+      "title_zh": "排版與海報",
+      "industries": [
+        "marketing",
+        "events",
+        "design",
+        "education",
+        "general"
+      ],
+      "use_cases": [
+        "活動海報",
+        "展覽宣傳",
+        "課程招募",
+        "品牌主視覺"
+      ],
+      "count": 13,
+      "file": "typography-and-posters.json"
+    },
+    {
+      "slug": "infographics-and-field-guides",
+      "category": "Infographics & Field Guides",
+      "title_zh": "資訊圖表與圖鑑",
+      "industries": [
+        "education",
+        "legal",
+        "accounting",
+        "research",
+        "general"
+      ],
+      "use_cases": [
+        "流程圖",
+        "年報視覺",
+        "教材插圖",
+        "研究摘要圖"
+      ],
+      "count": 8,
+      "file": "infographics-and-field-guides.json"
+    },
+    {
+      "slug": "brand-systems-and-identity",
+      "category": "Brand Systems & Identity",
+      "title_zh": "品牌系統與識別",
+      "industries": [
+        "design",
+        "marketing",
+        "general"
+      ],
+      "use_cases": [
+        "品牌指引展示",
+        "Logo 系統",
+        "識別頁"
+      ],
+      "count": 3,
+      "file": "brand-systems-and-identity.json"
+    },
+    {
+      "slug": "edit-endpoint-showcase",
+      "category": "Edit Endpoint Showcase",
+      "title_zh": "圖像編修示範",
+      "industries": [
+        "design",
+        "marketing",
+        "general"
+      ],
+      "use_cases": [
+        "既有海報換場景",
+        "多參考圖合成",
+        "局部 inpaint"
+      ],
+      "count": 2,
+      "file": "edit-endpoint-showcase.json"
+    },
+    {
+      "slug": "photography",
+      "category": "Photography",
+      "title_zh": "商業攝影",
+      "industries": [
+        "marketing",
+        "real_estate",
+        "hospitality",
+        "retail",
+        "general"
+      ],
+      "use_cases": [
+        "產品攝影",
+        "空間氛圍",
+        "場景情境"
+      ],
+      "count": 4,
+      "file": "photography.json"
+    },
+    {
+      "slug": "product-and-food",
+      "category": "Product & Food",
+      "title_zh": "產品與食物",
+      "industries": [
+        "marketing",
+        "retail",
+        "hospitality",
+        "general"
+      ],
+      "use_cases": [
+        "商品包裝",
+        "餐飲菜單",
+        "電商素材"
+      ],
+      "count": 4,
+      "file": "product-and-food.json"
+    },
+    {
+      "slug": "data-visualization",
+      "category": "Data Visualization",
+      "title_zh": "資料視覺化",
+      "industries": [
+        "accounting",
+        "research",
+        "education",
+        "product",
+        "general"
+      ],
+      "use_cases": [
+        "年報圖表",
+        "研究數據",
+        "儀表板示意"
+      ],
+      "count": 5,
+      "file": "data-visualization.json"
+    },
+    {
+      "slug": "architecture-and-interior",
+      "category": "Architecture & Interior",
+      "title_zh": "建築與室內",
+      "industries": [
+        "real_estate",
+        "design",
+        "hospitality",
+        "general"
+      ],
+      "use_cases": [
+        "建案概念",
+        "空間提案",
+        "氛圍渲染"
+      ],
+      "count": 5,
+      "file": "architecture-and-interior.json"
+    },
+    {
+      "slug": "technical-illustration",
+      "category": "Technical Illustration",
+      "title_zh": "技術插圖",
+      "industries": [
+        "engineering",
+        "manufacturing",
+        "education",
+        "general"
+      ],
+      "use_cases": [
+        "產品爆炸圖",
+        "原理示意",
+        "操作手冊插畫"
+      ],
+      "count": 5,
+      "file": "technical-illustration.json"
+    },
+    {
+      "slug": "cinematic-and-animation",
+      "category": "Cinematic & Animation",
+      "title_zh": "電影感與動畫",
+      "industries": [
+        "marketing",
+        "entertainment",
+        "general"
+      ],
+      "use_cases": [
+        "廣告分鏡",
+        "形象短片靜幀",
+        "活動主視覺"
+      ],
+      "count": 5,
+      "file": "cinematic-and-animation.json"
+    },
+    {
+      "slug": "scientific-and-educational",
+      "category": "Scientific & Educational",
+      "title_zh": "科學與教育",
+      "industries": [
+        "education",
+        "research",
+        "general"
+      ],
+      "use_cases": [
+        "教材插圖",
+        "概念示意",
+        "知識圖卡"
+      ],
+      "count": 7,
+      "file": "scientific-and-educational.json"
+    }
+  ],
+  "total_count": 66
+}

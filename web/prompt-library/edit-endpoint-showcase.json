@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "edit-endpoint-showcase",
+  "category": "Edit Endpoint Showcase",
+  "title_zh": "圖像編修示範",
+  "industries": [
+    "design",
+    "marketing",
+    "general"
+  ],
+  "use_cases": [
+    "既有海報換場景",
+    "多參考圖合成",
+    "局部 inpaint"
+  ],
+  "source": {
+    "repo": "wuyoscar/gpt_image_2_skill",
+    "license": "CC BY 4.0",
+    "url": "https://github.com/wuyoscar/gpt_image_2_skill/blob/main/skills/gpt-image/references/gallery-edit-endpoint-showcase.md"
+  },
+  "count": 2,
+  "prompts": [
+    {
+      "id": "edit-endpoint-showcase-100",
+      "no": 100,
+      "title": "Chess board → winter evening (edit via `/v1/images/edits`) 🆕",
+      "size": "landscape",
+      "pixel": "1536x1024",
+      "credit": "Author: OpenAI",
+      "prompt": "Make it a winter evening with heavy snowfall, snow dusted on the board and pieces, breath vapor in the air, cold blue-grey lighting, chess position still clearly readable. Preserve the original chess-board composition and landscape aspect ratio exactly; keep the board and pieces aligned and readable."
+    },
+    {
+      "id": "edit-endpoint-showcase-101",
+      "no": 101,
+      "title": "Tea poster → metro lightbox mockup",
+      "size": "portrait",
+      "pixel": "1024x1536",
+      "credit": "Curated",
+      "prompt": "Transform the provided tea poster into a realistic metro-station lightbox mockup while preserving the poster artwork and Chinese typography as much as possible. Show the poster behind glossy glass in a vertical illuminated advertising frame on a clean subway platform wall. Add subtle reflections, brushed metal frame, floor tiles, soft overhead transit lighting, and a few blurred commuters in the distance. Keep the poster straight, legible, and dominant; do not redesign the poster, do not change its main text, and do not add fake brand logos."
+    }
+  ]
+}
