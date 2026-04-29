@@ -187,6 +187,104 @@ function GalleryPromptList({ prompts, onUse }) {
 }
 
 /* ─────────────────────────────────────
+   v2.5 §四 Tier 1.6：Claude AI 一鍵增強鈕
+───────────────────────────────────── */
+const ENABLE_AI_ENHANCE = true;
+
+/* system prompt 套 craft.md §19 final audit 精神（runtime 不 fetch markdown）*/
+const ENHANCE_SYSTEM_PROMPT = `你是 Forma Studio 的 prompt 增強器。
+依 craft.md §19 final audit 把使用者 prompt 改寫得更完整。
+輸出僅包含改寫後 prompt，不含說明。
+
+必須補強：
+1. 任務意圖：image / edit / infographic / prototype / brand。
+2. 受眾、渠道、決策情境。
+3. 核心訊息一句話。
+4. 構圖、版面、typography、color system、material / lighting。
+5. in-image text 必須用引號逐字列出。
+6. size、quality、negative constraints。
+7. 反 AI Slop：禁紫漸變、generic card wall、emoji 圖標、假 logo、不可讀文字。
+8. 若原 prompt 含 source attribution，必須保留。
+
+不要新增未提供的具體品牌、人物、日期、法規或產品版本。若缺資訊，用 [PLACEHOLDER: ...] 標記。`;
+
+async function enhancePromptWithOpenAI(promptText, apiKey) {
+  const resp = await fetch('https://api.openai.com/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model: 'gpt-4o-mini',
+      temperature: 0.2,
+      messages: [
+        { role: 'system', content: ENHANCE_SYSTEM_PROMPT },
+        { role: 'user', content: promptText },
+      ],
+    }),
+  });
+  if (!resp.ok) {
+    const body = await resp.text().catch(()=>'');
+    throw new Error(`enhance ${resp.status}: ${body.slice(0,180)}`);
+  }
+  const data = await resp.json();
+  return data.choices?.[0]?.message?.content?.trim();
+}
+
+function EnhanceBtn({ text, onEnhanced, sm }) {
+  const { key } = useContext(ApiCtx);
+  const [loading, setLoading] = useState(false);
+  const [err, setErr] = useState('');
+  const noKey = !key.trim();
+  const empty = !text?.trim();
+  const disabled = !ENABLE_AI_ENHANCE || noKey || empty || loading;
+
+  const tip = noKey
+    ? '需要先輸入 OpenAI API key'
+    : empty
+    ? '尚無 prompt 可增強'
+    : '套 craft.md §19 audit 增強 prompt';
+
+  const run = async () => {
+    if (disabled) return;
+    setLoading(true);
+    setErr('');
+    try {
+      const next = await enhancePromptWithOpenAI(text, key);
+      if (next && next.trim()) {
+        onEnhanced(next.trim());
+      } else {
+        setErr('回應為空，已保留原 prompt');
+        setTimeout(()=>setErr(''), 3000);
+      }
+    } catch (e) {
+      console.warn('[Forma Studio] enhance failed', e);
+      setErr('AI 增強失敗，已保留原 prompt');
+      setTimeout(()=>setErr(''), 3000);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <button
+      onClick={run}
+      disabled={disabled}
+      title={tip}
+      className={`rounded-lg font-bold transition-all ${sm?'px-2.5 py-1 text-xs':'px-3 py-1.5 text-xs'} ${
+        disabled
+          ? 'bg-slate-700 text-slate-500 cursor-not-allowed'
+          : loading
+          ? 'bg-purple-700 text-white'
+          : 'bg-purple-600 hover:bg-purple-500 text-white'
+      }`}>
+      {loading ? '增強中...' : err ? `⚠️ ${err}` : '✨ AI 增強'}
+    </button>
+  );
+}
+
+/* ─────────────────────────────────────
    SHARED HELPERS
 ───────────────────────────────────── */
 function CopyBtn({ text, sm }) {
@@ -199,13 +297,16 @@ function CopyBtn({ text, sm }) {
   );
 }
 
-function OutBox({ text, label, hint, badge='yellow' }) {
+function OutBox({ text, label, hint, badge='yellow', onTextChange }) {
   if (!text) return null;
   return (
     <div className="fade-in mb-4">
       <div className="flex items-center justify-between mb-1.5">
         <span className={`text-sm font-bold ${badge==='teal'?'text-teal-400':'text-yellow-400'}`}>{label}</span>
-        <CopyBtn text={text} />
+        <div className="flex gap-1.5">
+          {onTextChange && <EnhanceBtn text={text} onEnhanced={onTextChange} sm/>}
+          <CopyBtn text={text} />
+        </div>
       </div>
       {hint && <p className="text-xs text-slate-500 mb-2">{hint}</p>}
       <div className="bg-slate-900 rounded-xl p-4 border border-slate-700 font-mono text-xs leading-relaxed whitespace-pre-wrap text-slate-300 max-h-80 overflow-y-auto">
@@ -2999,7 +3100,8 @@ n: ${thinking ? 4 : 2}`
               {advisorOut && (
                 <div className="mt-3 fade-in">
                   <OutBox text={advisorOut} label="🎨 設計方向顧問 Prompt" badge="teal"
-                    hint="貼入 Claude Code · AI 推薦 3 個跨流派方向" />
+                    hint="貼入 Claude Code · AI 推薦 3 個跨流派方向"
+                    onTextChange={setAdvisorOut} />
                 </div>
               )}
             </div>
@@ -3193,7 +3295,8 @@ n: ${thinking ? 4 : 2}`
             {out && (
               <div className="mt-4">
                 <OutBox text={out} label="🎨 圖像生成 Prompt"
-                  hint={thinking ? '★ Thinking 模式：AI 自我驗證後輸出 4 張候選圖' : '標準模式：出 2 張候選圖'} />
+                  hint={thinking ? '★ Thinking 模式：AI 自我驗證後輸出 4 張候選圖' : '標準模式：出 2 張候選圖'}
+                  onTextChange={setOut} />
               </div>
             )}
           </div>
