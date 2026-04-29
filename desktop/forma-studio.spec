@@ -67,7 +67,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name="ForumaStudio",  # macOS 內部 binary 名稱
+    name="FormaStudio",  # macOS 內部 binary 名稱
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -104,7 +104,7 @@ app = BUNDLE(
         "NSHighResolutionCapable": True,
         "LSApplicationCategoryType": "public.app-category.graphics-design",
         "LSMinimumSystemVersion": "12.0",
-        # Keychain 寫入需這個（避免每次跑跳系統對話框）
-        "NSAppleEventsUsageDescription": "讀寫系統鑰匙圈以保存 OpenAI API Key。",
+        # 注意：Keychain 寫入由 macOS 自己處理，第一次寫入會跳系統對話框，
+        # 不需 NSAppleEventsUsageDescription（那是 Apple Events 自動化權限）。
     },
 )

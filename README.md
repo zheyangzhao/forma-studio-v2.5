@@ -35,8 +35,16 @@ python desktop/main.py
 
 ```bash
 bash desktop/build_mac.sh
-# 產出 desktop/dist/Forma Studio.app
+# 產出 desktop/dist/Forma Studio.app（80 MB unsigned）
 ```
+
+### Python 版本矩陣
+
+| 環境 | Python | 用途 |
+|---|---|---|
+| 本機開發 / smoke | 3.12+（實測 3.14.4 OK） | 開 venv、`python desktop/main.py` |
+| CI（GitHub Actions） | 3.12 | macOS / Windows build artifact |
+| pytest | 同本機 | `QT_QPA_PLATFORM=offscreen pytest desktop/tests/` |
 
 ---
 

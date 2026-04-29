@@ -23,12 +23,12 @@ if exist build rmdir /s /q build
 if exist dist rmdir /s /q dist
 %VENV_PY% -m PyInstaller forma-studio.spec --clean --noconfirm
 
-if exist "dist\forma-studio\ForumaStudio.exe" (
+if exist "dist\forma-studio\FormaStudio.exe" (
   echo Build complete: dist\forma-studio\
   echo.
   echo Next steps (optional):
   echo   1. Sign with signtool.exe
-  echo   2. Test: dist\forma-studio\ForumaStudio.exe
+  echo   2. Test: dist\forma-studio\FormaStudio.exe
 ) else (
   echo Build failed
   exit /b 1

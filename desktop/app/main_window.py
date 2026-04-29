@@ -97,14 +97,31 @@ class PlaceholderTab(QWidget):
 
 
 def _read_gallery_index(project_root: Path) -> dict | None:
-    """讀 web/prompt-library/gallery-index.json；找不到回 None。"""
-    idx_path = project_root / "web" / "prompt-library" / "gallery-index.json"
-    if not idx_path.exists():
-        return None
-    try:
-        return json.loads(idx_path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
-        return None
+    """讀 gallery-index.json；同時支援：
+    - 開發環境：repo/web/prompt-library/
+    - PyInstaller _MEIPASS：sys._MEIPASS/prompt-library/
+    - PyInstaller macOS .app：Contents/Resources/prompt-library/（PyInstaller 6 對 BUNDLE 把 datas 放這裡）
+    """
+    import sys as _sys
+
+    candidates: list[Path] = []
+    meipass = getattr(_sys, "_MEIPASS", None)
+    if meipass:
+        candidates.append(Path(meipass) / "prompt-library" / "gallery-index.json")
+        # macOS .app：Contents/Frameworks 與 Contents/Resources 同層
+        candidates.append(
+            Path(meipass).parent / "Resources" / "prompt-library" / "gallery-index.json"
+        )
+    candidates.append(project_root / "web" / "prompt-library" / "gallery-index.json")
+
+    for path in candidates:
+        if not path.exists():
+            continue
+        try:
+            return json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+    return None
 
 
 class MainWindow(QMainWindow):

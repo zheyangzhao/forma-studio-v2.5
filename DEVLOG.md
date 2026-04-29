@@ -4,6 +4,53 @@
 
 ---
 
+## [2026-04-29] Sprint 2D 補完：Codex 事後 review 抓 2 Critical + 3 Major + 3 Minor 全修（pytest 24 → 40）
+
+### 補回流程紀律
+本來 Sprint 2D 跳過了「Codex 規劃 → review」步驟（雖然 PLAN-sprint-2.md §七有大綱）。事後請 Codex CLI 對已 commit 的程式做 review，抓到實質問題：
+
+### Codex 抓的 Critical（全修）
+1. **打包後 Gallery 路徑不一致**：spec 把 datas 放 bundle Resources，但 runtime 只讀 `web/prompt-library` → .app 啟動後 Gallery 找不到 JSON
+   修：`_read_gallery_index` 加 `_MEIPASS / prompt-library` 與 `Contents/Resources/prompt-library` fallback
+2. **EXE name typo**：`ForumaStudio` → `FormaStudio`
+   修：spec + build_win.bat 全替換；重 build .app 確認 binary 名正確
+
+### Codex 抓的 Major（全修，pytest +16）
+1. PLAN §3.5 的 `test_image_edit_requires_reference` / `test_image_generate_uses_quality` 缺 → 新增 `test_image_edit_panel.py`（5 test）
+2. OpenAI client mock 整檔缺 → 新增 `test_openai_client.py`（10 test，含 401/413/429 友善錯誤、edits multipart、enhance chat completions、PNG mask 拒絕）
+3. UI smoke 缺 → 新增 `test_smoke.py`（2 test：MainWindow 4 tab + BrandSettingsTab roundtrip）
+
+### Codex 抓的 Minor（全修）
+1. DEVLOG test 分布舊紀錄錯誤（不影響功能）
+2. `NSAppleEventsUsageDescription` 用錯（Keychain 不需這個 plist key）→ 移除並補正確說明
+3. Python 版本矩陣：CI 3.12 / 本機 3.14（README 加說明）
+
+### pytest 結果
+```
+40 passed in 0.33s
+```
+
+分布：
+- design_memory: 9 test
+- quality_dial: 8 test
+- widgets: 7 test
+- openai_client: 10 test（新增）
+- image_edit_panel: 5 test（新增）
+- smoke: 2 test（新增）
+
+### 實機 .app 驗證
+```
+Forma Studio.app/Contents/MacOS/FormaStudio                 ← typo 已修
+Forma Studio.app/Contents/Resources/prompt-library/         ← datas 正確進 bundle
+Forma Studio.app/Contents/Resources/prompt-library/gallery-index.json
+```
+
+### 教訓
+- 跳過 Codex review 會放掉 production bug（EXE typo / 路徑不一致）
+- 後續 sprint 必嚴格走「規劃 → 寫 → review → 測試」流程，不抄捷徑
+
+---
+
 ## [2026-04-29] Sprint 2D：pytest 套件 + PyInstaller 打包（unsigned .app）
 
 ### pytest 套件（24 test 全 PASS、0.22s）
