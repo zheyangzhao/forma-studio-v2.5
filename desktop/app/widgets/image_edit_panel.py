@@ -15,6 +15,7 @@ from typing import Any
 
 from PyQt6.QtCore import QObject, QThread, pyqtSignal
 from PyQt6.QtWidgets import (
+    QFileDialog,
     QHBoxLayout,
     QLabel,
     QMessageBox,
@@ -29,6 +30,7 @@ from app.utils.design_memory import (
     DesignMemory,
     apply_design_memory_to_prompt,
 )
+from app.utils.exporters import export_markdown
 from app.widgets.mask_uploader import MaskUploader, validate_png_alpha
 from app.widgets.quality_dial import QualityDial
 from app.widgets.reference_drop_zone import ReferenceDropZone
@@ -94,6 +96,9 @@ class ImageEditPanel(QWidget):
         self.quality_dial = QualityDial(self)
         self.generate_btn = QPushButton("生成新圖", self)
         self.edit_btn = QPushButton("修改既有圖", self)
+        # v3.0 Sprint 3B：Markdown export 入口
+        self.export_md_btn = QPushButton("匯出 Markdown", self)
+        self.export_md_btn.setEnabled(False)
         self.status_label = QLabel("Ready", self)
 
         self._build_ui()
@@ -115,6 +120,7 @@ class ImageEditPanel(QWidget):
 
         button_row = QHBoxLayout()
         button_row.addWidget(self.status_label, 1)
+        button_row.addWidget(self.export_md_btn)
         button_row.addWidget(self.generate_btn)
         button_row.addWidget(self.edit_btn)
         layout.addLayout(button_row)
@@ -122,6 +128,7 @@ class ImageEditPanel(QWidget):
     def _connect_signals(self) -> None:
         self.generate_btn.clicked.connect(self._on_generate_clicked)
         self.edit_btn.clicked.connect(self._on_edit_clicked)
+        self.export_md_btn.clicked.connect(self._on_export_markdown_clicked)
 
     # ── public API ──────────────────────────────────────
     def set_prompt(self, prompt: str) -> None:
@@ -226,6 +233,8 @@ class ImageEditPanel(QWidget):
     def _on_worker_finished(self, result: Any) -> None:
         if isinstance(result, ImageResult):
             self._last_result = result.data
+            # Sprint 3B：有 image bytes 後 export Markdown 按鈕可用
+            self.export_md_btn.setEnabled(True)
             self.status_label.setText(
                 f"完成（{len(result.data)} bytes，session cache）"
             )
@@ -246,6 +255,9 @@ class ImageEditPanel(QWidget):
     def _set_busy(self, busy: bool) -> None:
         self.generate_btn.setDisabled(busy)
         self.edit_btn.setDisabled(busy)
+        # busy 期間 export 也要 disable，避免匯出「新 prompt + 舊圖」（Codex Major fix）
+        if busy:
+            self.export_md_btn.setEnabled(False)
 
     def _show_error(self, message: str, *, modal: bool = True) -> None:
         # validation error 用 modal=False（不彈窗，方便 pytest-qt）
@@ -254,6 +266,37 @@ class ImageEditPanel(QWidget):
         self.error_raised.emit(message)
         if modal:
             QMessageBox.warning(self, "Forma Studio", message)
+
+    def _on_export_markdown_clicked(self) -> None:
+        # Sprint 3B Markdown export entry
+        prompt = self.prompt()
+        if not prompt:
+            self._show_error("請先輸入 prompt", modal=False)
+            return
+        path_str, _ = QFileDialog.getSaveFileName(
+            self,
+            "匯出 Markdown",
+            "forma-export.md",
+            "Markdown (*.md)",
+        )
+        if not path_str:
+            return
+        try:
+            out = export_markdown(
+                self._memory,
+                prompt,
+                self._last_result,
+                Path(path_str),
+                quality=self.quality_dial.quality(),
+                source_attribution=[
+                    "wuyoscar/gpt_image_2_skill, CC BY 4.0",
+                    "EvoLinkAI/awesome-gpt-image-2-prompts, CC BY 4.0",
+                ],
+            )
+        except (OSError, ValueError) as exc:
+            self._show_error(f"Markdown 匯出失敗：{exc}", modal=True)
+            return
+        self.status_label.setText(f"已匯出 Markdown：{out.name}")
 
     def closeEvent(self, event: Any) -> None:
         # 視窗關閉時若 worker 仍跑，等最多 2 秒；避免 "Destroyed while running"

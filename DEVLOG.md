@@ -4,6 +4,43 @@
 
 ---
 
+## [2026-04-29] v3.0 Sprint 3B 完成：Markdown export（M2 Phase 1，pytest 50 → 60）
+
+### 工作流程
+1. Codex 規劃：PLAN-sprint-3 §三（已就緒）
+2. Claude 寫程式：MarkdownExporter + GUI 按鈕 + 8 test
+3. Codex Code Review：0 Critical + 2 Major + 1 Minor 全修
+4. pytest：60 PASS（v2.5 既有 50 + Sprint 3B 新 10）
+
+### Codex 抓的 Major（已修）
+1. export button 在新一輪 generate 期間保持 enabled → 可能匯出「新 prompt + 舊圖」
+   修：`_set_busy(busy=True)` 同時 disable export_md_btn
+2. Design Memory section 缺 `prompt_defaults` 欄位
+   修：`_memory_section` 補 prompt_defaults 列出
+
+### Minor（已修）
+1. sidecar 覆蓋行為沒測 → 加 test_markdown_export_overwrites_sidecar 釘住
+
+### 已交付
+- `desktop/app/utils/exporters/__init__.py`：套件入口
+- `desktop/app/utils/exporters/markdown_exporter.py`（~210 行）：MarkdownExporter class + ExportMetadata + export_markdown function
+  - YAML frontmatter（schema_version / export_type / created_at / project / brand / industry / quality / image_file）
+  - Design Memory section（v2.5 全 + v3 新 4 欄位）
+  - Generated Image section（sidecar PNG，不 base64 inline）
+  - Source Attribution section
+- `desktop/app/widgets/image_edit_panel.py`：加「匯出 Markdown」按鈕、_on_export_markdown_clicked handler、生成完成後 enable、busy 時 disable
+- `desktop/tests/test_exporters.py`（10 test）
+
+### 規模變化
+- pytest：50 → **60** (+10)
+- 新增模組：exporters/ 套件（為 Sprint 3C PDF export 做基礎）
+
+### 待處理
+- [ ] Sprint 3C：PDF export（M2 Phase 2，~16-34h，需 reportlab + 中文字型 bundling）
+- [ ] Sprint 3D / 3E（outline only，v3.0.5+）
+
+---
+
 ## [2026-04-29] v3.0 Sprint 3A 完成：DESIGN.md schema 擴充（M1，pytest 40 → 50）
 
 ### 工作流程（嚴守紀律）
