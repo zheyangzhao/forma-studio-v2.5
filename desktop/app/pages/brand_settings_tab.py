@@ -11,6 +11,7 @@ from PyQt6.QtCore import pyqtSignal
 from PyQt6.QtWidgets import (
     QFileDialog,
     QFormLayout,
+    QGroupBox,
     QHBoxLayout,
     QHeaderView,
     QLabel,
@@ -18,6 +19,7 @@ from PyQt6.QtWidgets import (
     QMessageBox,
     QPlainTextEdit,
     QPushButton,
+    QScrollArea,
     QTableWidget,
     QTableWidgetItem,
     QVBoxLayout,
@@ -84,6 +86,25 @@ class BrandSettingsTab(QWidget):
         )
         self.negative_edit = QPlainTextEdit(self)
         self.negative_edit.setPlaceholderText("每行一條 negative constraint")
+        # v3.0 新增 4 個 optional 欄位（PLAN-sprint-3 §2.5）
+        self.spacing_table = QTableWidget(0, 2, self)
+        self.spacing_table.setHorizontalHeaderLabels(["token", "value"])
+        self.spacing_table.horizontalHeader().setStretchLastSection(True)
+        self.spacing_table.horizontalHeader().setSectionResizeMode(
+            0, QHeaderView.ResizeMode.Stretch
+        )
+        self.add_spacing_btn = QPushButton("+ 加 spacing", self)
+        self.del_spacing_btn = QPushButton("− 移除選中", self)
+        self.components_edit = QPlainTextEdit(self)
+        self.components_edit.setPlaceholderText(
+            "每行一條 component spec\n例如：\nButton: 8px radius, icon-only when symbol is familiar"
+        )
+        self.motion_edit = QPlainTextEdit(self)
+        self.motion_edit.setPlaceholderText(
+            "key: value，每行一筆\n例如：\nduration_fast: 120ms\neasing_standard: cubic-bezier(0.2, 0, 0, 1)"
+        )
+        self.voice_edit = QPlainTextEdit(self)
+        self.voice_edit.setPlaceholderText("每行一條 voice signal")
         # color tokens table
         self.color_table = QTableWidget(0, 2, self)
         self.color_table.setHorizontalHeaderLabels(["token", "value"])
@@ -105,7 +126,15 @@ class BrandSettingsTab(QWidget):
         self._connect_signals()
 
     def _build_ui(self) -> None:
-        outer = QVBoxLayout(self)
+        # 用 QScrollArea 包外層，避免 v3 4 個新區塊撐爆視窗（Codex review Major fix）
+        root_layout = QVBoxLayout(self)
+        root_layout.setContentsMargins(0, 0, 0, 0)
+        scroll = QScrollArea(self)
+        scroll.setWidgetResizable(True)
+        inner = QWidget(self)
+        scroll.setWidget(inner)
+        root_layout.addWidget(scroll)
+        outer = QVBoxLayout(inner)
 
         # 專案目錄選擇
         dir_row = QHBoxLayout()
@@ -145,6 +174,37 @@ class BrandSettingsTab(QWidget):
         outer.addWidget(QLabel("Negative Constraints（每行一條）"))
         outer.addWidget(self.negative_edit)
 
+        # v3.0 optional sections：用 QGroupBox 視覺分隔，不撐高 widget tree
+        # （collapsible 在 PyQt6 沒原生 widget；以 GroupBox + ScrollArea 折衷）
+        v3_label = QLabel("── v3.0 Optional Sections（不填可省略）──", self)
+        v3_label.setStyleSheet("color: #facc15; font-weight: bold; margin-top: 8px;")
+        outer.addWidget(v3_label)
+
+        spacing_box = QGroupBox("Spacing & Layout", self)
+        sb_lay = QVBoxLayout(spacing_box)
+        sb_lay.addWidget(self.spacing_table)
+        sb_btn = QHBoxLayout()
+        sb_btn.addWidget(self.add_spacing_btn)
+        sb_btn.addWidget(self.del_spacing_btn)
+        sb_btn.addStretch(1)
+        sb_lay.addLayout(sb_btn)
+        outer.addWidget(spacing_box)
+
+        components_box = QGroupBox("Components（每行一條 spec）", self)
+        cb_lay = QVBoxLayout(components_box)
+        cb_lay.addWidget(self.components_edit)
+        outer.addWidget(components_box)
+
+        motion_box = QGroupBox("Motion（key: value）", self)
+        mb_lay = QVBoxLayout(motion_box)
+        mb_lay.addWidget(self.motion_edit)
+        outer.addWidget(motion_box)
+
+        voice_box = QGroupBox("Voice & Copy（每行一條）", self)
+        vb_lay = QVBoxLayout(voice_box)
+        vb_lay.addWidget(self.voice_edit)
+        outer.addWidget(voice_box)
+
         # save row
         save_row = QHBoxLayout()
         save_row.addWidget(self.status_label, 1)
@@ -157,6 +217,9 @@ class BrandSettingsTab(QWidget):
         self.save_btn.clicked.connect(self.save_to_project)
         self.add_color_btn.clicked.connect(self._add_color_row)
         self.del_color_btn.clicked.connect(self._del_color_row)
+        # v3.0 spacing
+        self.add_spacing_btn.clicked.connect(self._add_spacing_row)
+        self.del_spacing_btn.clicked.connect(self._del_spacing_row)
 
     # ── public API ──────────────────────────────────────
     def load_from_project(self, project_dir: Path) -> None:
@@ -220,6 +283,11 @@ class BrandSettingsTab(QWidget):
         memory.negative_constraints = _text_to_list(
             self.negative_edit.toPlainText()
         )
+        # v3.0 optional 欄位
+        memory.spacing_tokens = self._spacing_table_to_dict()
+        memory.components = _text_to_list(self.components_edit.toPlainText())
+        memory.motion = _text_to_kv(self.motion_edit.toPlainText())
+        memory.voice_signals = _text_to_list(self.voice_edit.toPlainText())
         return memory
 
     def set_memory(self, memory: DesignMemory) -> None:
@@ -237,6 +305,11 @@ class BrandSettingsTab(QWidget):
             _list_to_text(memory.negative_constraints)
         )
         self._dict_to_color_table(memory.color_tokens)
+        # v3.0 optional 欄位
+        self._dict_to_spacing_table(memory.spacing_tokens)
+        self.components_edit.setPlainText(_list_to_text(memory.components))
+        self.motion_edit.setPlainText(_kv_to_text(memory.motion))
+        self.voice_edit.setPlainText(_list_to_text(memory.voice_signals))
 
     # ── helpers ─────────────────────────────────────────
     def _choose_dir(self) -> None:
@@ -278,3 +351,34 @@ class BrandSettingsTab(QWidget):
         self.color_table.setRowCount(0)
         for tok, val in tokens.items():
             self._add_color_row(tok, val)
+
+    # ── v3.0 spacing table helpers（與 color_table 同模式）──
+    def _add_spacing_row(self, token: str = "", value: str = "") -> None:
+        row = self.spacing_table.rowCount()
+        self.spacing_table.insertRow(row)
+        self.spacing_table.setItem(row, 0, QTableWidgetItem(token))
+        self.spacing_table.setItem(row, 1, QTableWidgetItem(value))
+
+    def _del_spacing_row(self) -> None:
+        rows = sorted(
+            {idx.row() for idx in self.spacing_table.selectedIndexes()},
+            reverse=True,
+        )
+        for r in rows:
+            self.spacing_table.removeRow(r)
+
+    def _spacing_table_to_dict(self) -> dict[str, str]:
+        out: dict[str, str] = {}
+        for r in range(self.spacing_table.rowCount()):
+            tok_item = self.spacing_table.item(r, 0)
+            val_item = self.spacing_table.item(r, 1)
+            tok = tok_item.text().strip() if tok_item else ""
+            val = val_item.text().strip() if val_item else ""
+            if tok:
+                out[tok] = val
+        return out
+
+    def _dict_to_spacing_table(self, tokens: dict[str, str]) -> None:
+        self.spacing_table.setRowCount(0)
+        for tok, val in tokens.items():
+            self._add_spacing_row(tok, val)

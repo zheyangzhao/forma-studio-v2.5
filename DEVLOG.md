@@ -4,6 +4,45 @@
 
 ---
 
+## [2026-04-29] v3.0 Sprint 3A 完成：DESIGN.md schema 擴充（M1，pytest 40 → 50）
+
+### 工作流程（嚴守紀律）
+1. **Codex 規劃**：PLAN-sprint-3.md 2226 行 / 11 章節
+2. **Claude 寫程式**：design_memory.py + brand_settings_tab.py + test_design_memory_v3.py
+3. **Codex Code Review**：抓 0 Critical + 3 Major + 2 Minor
+4. **修 + 測試**：50 PASS（v2.5 既有 40 不退步 + v3 新 10 PASS）
+
+### Codex 抓的 Major（已修）
+1. BrandSettingsTab 沒 ScrollArea + 沒 GroupBox → 加 QScrollArea 包外層 + 4 個 v3 section 用 QGroupBox 分隔
+2. Spacing & Layout 缺 unparsed-line warning → 補
+3. build_system_prompt 沒做摘要化 cap → 加 cap（spacing/components 12、motion/voice 8）
+
+### Minor（已修）
+1. test 移除 unused import `pytest`
+2. typo warning 即使 expected 已存在也 warn（避免重複 section 被忽略）
+
+### 規模變化
+- design_memory.py：~250 行 → ~340 行（+90，加 4 dataclass 欄位 + ParseResult + 2 helper + serializer + system prompt）
+- brand_settings_tab.py：+ ScrollArea + 4 個 QGroupBox + spacing_table helpers + set/get 接線
+- test_design_memory_v3.py：新增 10 test（v2.5 兼容 / v3 full / roundtrip / 空 section / 摘要化 / typo warning）
+
+### v2.5 → v3.0 schema mapping
+| v2.5（保留） | v3.0 新增（optional） |
+|---|---|
+| Brand Identity | Spacing & Layout |
+| Color Tokens | Components |
+| Typography | Motion |
+| Visual Rules | Voice & Copy |
+| Prompt Defaults | |
+| Negative Constraints | |
+
+### 待處理（v3.0 接力）
+- [ ] Sprint 3B：Markdown export（PLAN §三，~12h）
+- [ ] Sprint 3C：PDF export（PLAN §四，16-34h，需 reportlab + 中文字型）
+- [ ] Sprint 3D / 3E（outline only）
+
+---
+
 ## [2026-04-29] v3.0 backlog 評估報告（Codex 寫，666 行 / 24 KB）
 
 ### 工作流程
