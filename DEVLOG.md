@@ -4,6 +4,48 @@
 
 ---
 
+## [2026-04-29] Sprint 2D：pytest 套件 + PyInstaller 打包（unsigned .app）
+
+### pytest 套件（24 test 全 PASS、0.22s）
+- `desktop/tests/conftest.py`：sys.path + offscreen Qt
+- `desktop/tests/test_design_memory.py`：8 test（parse / round trip / build_system_prompt / apply / load missing / 三欄 table / idempotent）
+- `desktop/tests/test_quality_dial.py`：8 test（QUALITY_OPTIONS / estimate_image_cost / suggest_quality / QualityDial defaults / set_quality）
+- `desktop/tests/test_widgets.py`：8 test（PNG alpha 驗證 4 種、ReferenceDropZone limits/skip invalid、MaskUploader clears on invalid）
+- 命令：`QT_QPA_PLATFORM=offscreen pytest desktop/tests/ -q`
+
+### PyInstaller 打包
+- `desktop/forma-studio.spec`：spec 檔（含 prompt-library/ datas、hidden imports、PyQt6 排除清單、macOS BUNDLE info_plist）
+- `desktop/build_mac.sh`：macOS build script（exec 權限）
+- `desktop/build_win.bat`：Windows build script
+- `.github/workflows/desktop-build.yml`：GitHub Actions（手動觸發 + macOS/Windows 雙 build + artifact upload）
+- 實際 build 結果：`desktop/dist/Forma Studio.app`（80MB，unsigned）
+- `bundle_identifier`: `ai.formastudio.desktop`
+- `LSMinimumSystemVersion`: 12.0
+
+### 待用戶完成（需私有資源）
+- Apple Developer ID Application 憑證 → codesign
+- App Store Connect API Key → notarize
+- Windows Authenticode 憑證 → signtool
+
+### .gitignore 更新
+- `desktop/build/`、`desktop/dist/`、`*.egg-info/` 已排除
+
+### README 更新
+- 各模組狀態升級為「完成」/「Sprint 2A+2B+2C 完成」
+- 加快速啟動命令（web / desktop / build）
+
+### Sprint 2 整體 Done
+| Sprint | 狀態 |
+|---|---|
+| 2 計劃書 | ✅ |
+| 2A 基礎設施 | ✅ |
+| 2B edit endpoint UI | ✅ |
+| 2C DESIGN.md | ✅ |
+| 2D unsigned .app + CI workflow | ✅ |
+| 2D 簽名 + notarize | ⏸ 等用戶 Apple Developer ID |
+
+---
+
 ## [2026-04-29] 🎉 Sprint 2 桌面版實機驗收 PASS（venv + headless GUI smoke）
 
 ### 驗收環境

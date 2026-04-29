@@ -6,14 +6,37 @@
 
 ---
 
-## 目前狀態
+## 目前狀態（2026-04-29）
 
 | 項目 | 狀態 |
 |---|---|
 | SDD v2.5 規格書 | ✅ 定稿（[`docs/SDD-v2.5-integration-upgrade.md`](docs/SDD-v2.5-integration-upgrade.md)） |
-| Tier 1：Web 版升級 | 🟡 待實作（prompt gallery / SKILL.md / craft.md） |
-| Tier 2：PyQt6 桌面版 | 🟡 待實作（edit endpoint / quality 撥盤 / DESIGN.md） |
-| Tier 3：v3.0 評估 | ⏸ Backlog（Comment mode / 多格式匯出） |
+| Tier 1：Web 版升級 | ✅ 完成（gallery 116 條 / 17 類 / 雙 source / SKILL.md / craft.md / Claude 一鍵增強鈕，28 步 Playwright PASS，tag `v2.5-sprint-1.5`） |
+| Tier 2：PyQt6 桌面版 | ✅ Sprint 2A+2B+2C 完成（13 個 .py / 4 tab GUI / DESIGN.md parser，24 pytest PASS，headless smoke PASS） |
+| Tier 2D：打包 | 🟡 unsigned .app 可 build（80MB），簽名 + notarize 需 Apple Developer ID |
+| Tier 3：v3.0 評估 | ⏸ Backlog（Comment mode / 多格式匯出 / nexu-io design-systems 借鑑） |
+
+### Web 版快速啟動
+
+```bash
+cd web && python3 -m http.server 8765
+# 瀏覽器開 http://localhost:8765/forma-studio.html
+```
+
+### 桌面版快速啟動
+
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r desktop/requirements.txt
+python desktop/main.py
+```
+
+### 桌面版打包（macOS）
+
+```bash
+bash desktop/build_mac.sh
+# 產出 desktop/dist/Forma Studio.app
+```
 
 ---
 

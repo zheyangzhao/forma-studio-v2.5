@@ -41,3 +41,9 @@ venv/
 
 # Sprint 2 smoke 截圖（保留 smoke_launch.py，忽略 PNG artifacts）
 desktop/tests/smoke-artifacts/
+
+# PyInstaller build artifacts
+desktop/build/
+desktop/dist/
+*.egg-info/
+.eggs/

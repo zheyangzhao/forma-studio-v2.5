@@ -10,7 +10,7 @@
 |---|---|---|
 | SDD v2.5 規格書 | ✅ 定稿 | `docs/SDD-v2.5-integration-upgrade.md`（1005 行） |
 | Web 版升級（Tier 1 + Tier 1.5） | 🟢 **Sprint 1.5 全部完成** | gallery **116** 條 + SKILL.md + craft.md + HTML loader + UI 接線 + AI 增強鈕（28 步 Playwright 全 PASS、tag `v2.5-sprint-1.5`）|
-| 桌面版升級（Tier 2） | 🟢 Sprint 2A + 2B + 2C 完成 + headless smoke PASS | 13 個 .py / 4 tab GUI / 6 widget / DESIGN.md parser 全到位；venv 驗收 4 tab 全建立 + 4 截圖通過；2D 打包待做 |
+| 桌面版升級（Tier 2） | 🟢 Sprint 2A+2B+2C+2D 完成 | 13 個 .py / 4 tab / pytest 24 PASS / unsigned .app 80MB build 成功 / GitHub Actions CI workflow 就緒；簽名留給用戶 Apple Developer ID |
 | v3.0 觀望項（Tier 3） | ⏸ Backlog | Comment mode / 多格式匯出 |
 
 ---
