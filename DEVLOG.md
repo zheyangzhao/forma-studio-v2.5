@@ -4,6 +4,56 @@
 
 ---
 
+## [2026-04-29] Sprint 2C 完成：DESIGN.md 共享記憶（parser + GUI + memory injection）
+
+### 工作流程
+1. Codex 規劃：PLAN-sprint-2.md §四
+2. Claude 寫程式：design_memory.py（parser + serializer）+ brand_settings_tab.py（GUI）+ main_window/image_edit_panel 接線
+3. Codex Code Review：抓 1 Critical + 3 Major + 2 Minor
+4. 修 1 Critical + 2 Major + Major 1 unit test 驗證
+5. AST 15 檔 + design_memory unit test 全 PASS
+
+### Codex review 抓到（已修）
+- **Critical**：main_window 啟動時 `load_from_project` 在 connect 之前 → emit 不會傳到 ImageEditPanel → 改成 connect → load 順序
+- **Major 1**：`_TABLE_ROW_RE` 只接受 2 欄，SDD §4.3 範例 3 欄 fail → 放寬 regex（單元測試通過 3 欄）
+- **Major 2**：`save_to_project` 沒 catch OSError → 加 try/except + QMessageBox
+
+### Sprint 2C scope-out（commit 註記）
+- **Major 3**：enhance_prompt UI 整合 — OpenAIClient.enhance_prompt 已支援 system_prompt 參數（Sprint 2A 完成），但桌面版尚未有 enhance 按鈕。UI 接線留 Sprint 2D 或後續 sprint
+- **Minor 1**：audience GUI 改 multi-line — 保留 QLineEdit + 多分隔符 placeholder（parser 已支援 5 種分隔符）
+- **Minor 2**：英文 label 統一中文 — 部分保留以便對照 PLAN
+
+### 已交付檔案
+- `desktop/app/utils/design_memory.py`（~250 行）：DesignMemory dataclass + parse / serialize / save / load / validate / build_system_prompt / apply_design_memory_to_prompt
+- `desktop/app/pages/brand_settings_tab.py`（~210 行）：GUI form + color table + load/save buttons
+- `desktop/app/main_window.py`：替換 brand placeholder + memory_changed signal 流轉到 ImageEditPanel
+- `desktop/app/widgets/image_edit_panel.py`：set_design_memory + 兩 click handler 用 apply_design_memory_to_prompt prepend
+
+### Unit test 驗證（不需 PyQt6 即可跑）
+- 3 欄 table parser（Major 1 fix）：PASS
+- markdown round trip：PASS
+- None fallback：PASS
+- build_system_prompt 注入 negative：PASS
+- validate 警告 brand_name 缺失：PASS
+
+### Sprint 2 整體狀態
+| Sprint | 狀態 |
+|---|---|
+| 2 計劃書 | ✅ |
+| 2A 基礎設施 | ✅ |
+| 2B edit endpoint UI | ✅ |
+| 2C DESIGN.md | ✅ **本次** |
+| 2D 打包 | ⏳ |
+
+桌面版核心能力（生圖 / 修圖 / Quality 撥盤 / Keychain / DESIGN.md 共享記憶）全到位。venv install 後即可實際 launch GUI 驗收。
+
+### 待處理
+- [ ] Sprint 2D：PyInstaller .app 打包 + 簽名（macOS）+ Windows .exe（後續）
+- [ ] pytest-qt smoke test（Sprint 2A/2B/2C 各自 5 test）
+- [ ] enhance_prompt UI（按鈕 + 接 build_system_prompt）— 未排期
+
+---
+
 ## [2026-04-29] Sprint 2B 完成：edit endpoint UI（reference drop / mask / image edit panel）
 
 ### 工作流程

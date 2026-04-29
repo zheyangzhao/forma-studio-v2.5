@@ -25,6 +25,10 @@ from PyQt6.QtWidgets import (
 )
 
 from app.api.openai_client import ImageResult, OpenAIClient, OpenAIClientError
+from app.utils.design_memory import (
+    DesignMemory,
+    apply_design_memory_to_prompt,
+)
 from app.widgets.mask_uploader import MaskUploader, validate_png_alpha
 from app.widgets.quality_dial import QualityDial
 from app.widgets.reference_drop_zone import ReferenceDropZone
@@ -82,6 +86,7 @@ class ImageEditPanel(QWidget):
         self._thread: QThread | None = None
         self._worker: _OpenAIWorker | None = None
         self._last_result: bytes | None = None
+        self._memory: DesignMemory | None = None
 
         self.prompt_edit = QTextEdit(self)
         self.reference_zone = ReferenceDropZone(self)
@@ -128,15 +133,22 @@ class ImageEditPanel(QWidget):
     def last_result(self) -> bytes | None:
         return self._last_result
 
+    def set_design_memory(self, memory: DesignMemory | None) -> None:
+        # Sprint 2C：BrandSettingsTab 透過 main_window 把 memory 灌入
+        # 後續 generate/edit 前會 prepend memory 摘要
+        self._memory = memory
+
     # ── send ────────────────────────────────────────────
     def _on_generate_clicked(self) -> None:
         prompt = self.prompt()
         if not prompt:
             self._show_error("請先輸入 prompt", modal=False)
             return
+        # Sprint 2C：若有 DESIGN.md memory，prepend 到 prompt
+        prompt_with_memory = apply_design_memory_to_prompt(prompt, self._memory)
         quality = self.quality_dial.quality()
         self._dispatch(
-            lambda: self._make_generate_task(prompt, quality)
+            lambda: self._make_generate_task(prompt_with_memory, quality)
         )
 
     def _on_edit_clicked(self) -> None:
@@ -158,9 +170,11 @@ class ImageEditPanel(QWidget):
             if not ok:
                 self._show_error(f"mask 已失效：{msg}", modal=False)
                 return
+        # Sprint 2C：edit 也套用 DESIGN.md memory
+        prompt_with_memory = apply_design_memory_to_prompt(prompt, self._memory)
         quality = self.quality_dial.quality()
         self._dispatch(
-            lambda: self._make_edit_task(prompt, images, mask, quality)
+            lambda: self._make_edit_task(prompt_with_memory, images, mask, quality)
         )
 
     def _make_generate_task(self, prompt: str, quality: str) -> tuple:

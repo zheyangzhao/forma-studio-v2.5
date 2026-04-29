@@ -26,6 +26,8 @@ from PyQt6.QtWidgets import (
 
 from app.api import key_store
 from app.api.openai_client import OpenAIClient
+from app.pages.brand_settings_tab import BrandSettingsTab
+from app.utils.design_memory import DesignMemory
 from app.widgets.image_edit_panel import ImageEditPanel
 
 
@@ -117,6 +119,7 @@ class MainWindow(QMainWindow):
         self.api_key_bar = ApiKeyBar(self)
         self.tabs = QTabWidget(self)
         self.image_edit_panel: ImageEditPanel | None = None
+        self.brand_settings_tab: BrandSettingsTab | None = None
         self._build_ui()
         self._connect_signals()
         self._apply_theme()
@@ -170,11 +173,14 @@ class MainWindow(QMainWindow):
         return self.image_edit_panel
 
     def _build_brand_tab(self) -> QWidget:
-        return PlaceholderTab(
-            "DESIGN.md",
-            "Sprint 2C 實作 DESIGN.md parse / validate / save 與 system prompt 注入。",
-            self,
+        # Sprint 2C：BrandSettingsTab 取代 placeholder
+        self.brand_settings_tab = BrandSettingsTab(
+            project_root=self.project_root, parent=self
         )
+        # 注意：先 connect 再 load_from_project，否則啟動時的 emit 不會傳到 ImageEditPanel
+        self.brand_settings_tab.memory_changed.connect(self._on_memory_changed)
+        self.brand_settings_tab.load_from_project(self.project_root)
+        return self.brand_settings_tab
 
     def _build_settings_tab(self) -> QWidget:
         return PlaceholderTab(
@@ -241,3 +247,13 @@ class MainWindow(QMainWindow):
 
     def _on_image_error(self, message: str) -> None:
         self.statusBar().showMessage(f"⚠️ {message}", 5000)
+
+    def _on_memory_changed(self, memory: DesignMemory | None) -> None:
+        # 把 DESIGN.md 記憶傳給 ImageEditPanel；None 代表清空
+        if self.image_edit_panel is not None:
+            self.image_edit_panel.set_design_memory(memory)
+        if memory is None:
+            self.statusBar().showMessage("DESIGN.md 已清除", 3000)
+        else:
+            brand = memory.brand_name or "(unnamed)"
+            self.statusBar().showMessage(f"DESIGN.md 已套用：{brand}", 3000)
