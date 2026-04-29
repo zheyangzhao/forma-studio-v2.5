@@ -10,7 +10,7 @@
 |---|---|---|
 | SDD v2.5 規格書 | ✅ 定稿 | `docs/SDD-v2.5-integration-upgrade.md`（1005 行） |
 | Web 版升級（Tier 1 + Tier 1.5） | 🟢 **Sprint 1.5 全部完成** | gallery **116** 條 + SKILL.md + craft.md + HTML loader + UI 接線 + AI 增強鈕（28 步 Playwright 全 PASS、tag `v2.5-sprint-1.5`）|
-| 桌面版升級（Tier 2） | ❌ 未開始 | edit endpoint / quality 撥盤 / DESIGN.md 待實作 |
+| 桌面版升級（Tier 2） | 🟡 Sprint 2A 完成 | main.py + main_window + key_store + openai_client + quality_dial 已實作；2B (edit UI) / 2C (DESIGN.md) 待做 |
 | v3.0 觀望項（Tier 3） | ⏸ Backlog | Comment mode / 多格式匯出 |
 
 ---

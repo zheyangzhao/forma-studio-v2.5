@@ -4,6 +4,61 @@
 
 ---
 
+## [2026-04-29] Sprint 2A 完成：PyQt6 桌面版基礎設施
+
+### 工作流程
+1. **Codex CLI 規劃**：`docs/PLAN-sprint-2.md`（1518 行 / 十大章節 / Sprint 2A/2B/2C 分期）
+2. **Claude 寫程式**：6 個核心檔 + 3 個 `__init__.py` + requirements.txt（總 ~600 行 Python）
+3. **Codex CLI Code Review**：抓 2 Major（mask 未驗 PNG、`get_key()` 沒容錯 KeyringError），均已修
+4. **AST Parse**：8/8 .py 檔通過
+
+### 已交付檔案
+
+```
+desktop/
+├── main.py                          # QApplication 入口（30 行）
+├── requirements.txt                 # PyQt6 6.11 / httpx 0.28 / keyring 25.7 + pytest 套件
+├── app/
+│   ├── __init__.py
+│   ├── api/
+│   │   ├── __init__.py
+│   │   ├── key_store.py             # macOS Keychain / Windows Credential（45 行）
+│   │   └── openai_client.py         # generate_image / edit_image / enhance_prompt（180 行）
+│   ├── widgets/
+│   │   ├── __init__.py
+│   │   └── quality_dial.py          # QualityDial widget + estimate_image_cost / suggest_quality（110 行）
+│   └── main_window.py               # 4 tab 主視窗 + ApiKeyBar + 深色主題（230 行）
+```
+
+### 規格符合度（PLAN §二）
+- ✅ keyring service="Forma Studio"、account="openai_api_key"
+- ✅ OpenAI client：generations + edits + chat completions 三 endpoint
+- ✅ edit_image：拒絕 0/>4 張、PNG mask 驗證、b64_json 解碼
+- ✅ 友善錯誤訊息（401/413/429）
+- ✅ QualityDial 三段（low $0.005 / medium $0.04 / high $0.17）
+- ✅ HIGH_QUALITY_TRIGGERS 中文/海報/infographic 自動建議升 high
+- ✅ 4 tab（Gallery / Image / Brand / Settings），placeholder 留給 Sprint 2B/2C
+- ✅ Gallery tab 讀 web/prompt-library/gallery-index.json 顯示 total/cats/sources
+- ✅ 深色主題對齊 Web 版 slate-900 系
+- ✅ `from __future__ import annotations` + Python 注釋用 `#`（不誤套 React `/* */`）
+
+### 待驗收（需要 venv 環境）
+本機 ast.parse 已通過；PyQt6 GUI launch 與 pytest-qt smoke test 留給用戶 venv install 後執行：
+
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r desktop/requirements.txt
+python desktop/main.py    # 主視窗應該開起來
+pytest desktop/tests/     # （Sprint 2A 暫時沒 test，留給 2B 補）
+```
+
+### 待處理
+- [ ] Sprint 2B：edit endpoint UI（reference_drop_zone / mask_uploader / image_edit_panel）
+- [ ] Sprint 2C：DESIGN.md（design_memory.py + brand_settings_tab.py）
+- [ ] Sprint 2D：打包（PyInstaller .app + signing + notarize）
+
+---
+
 ## [2026-04-29] 🎉 Sprint 1.5 全部完成：B + A + Tier 1.6（tag v2.5-sprint-1.5）
 
 ### Tier 1.6：Claude 一鍵增強鈕
