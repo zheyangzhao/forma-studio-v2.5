@@ -34,3 +34,10 @@ workflow-kit/state/deadlock-tracker.json
 .playwright/*
 !.playwright/*.spec.js
 !.playwright/*.config.js
+
+# Python venv（桌面版）
+.venv/
+venv/
+
+# Sprint 2 smoke 截圖（保留 smoke_launch.py，忽略 PNG artifacts）
+desktop/tests/smoke-artifacts/

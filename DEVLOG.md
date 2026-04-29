@@ -4,6 +4,63 @@
 
 ---
 
+## [2026-04-29] 🎉 Sprint 2 桌面版實機驗收 PASS（venv + headless GUI smoke）
+
+### 驗收環境
+- Python 3.14.4 / pip 26.0.1
+- venv：`forma-studio-v2.5/.venv/`
+- 套件：PyQt6 6.11.0 / httpx 0.28.1 / keyring 25.7.0 / pytest 9.0.3 / pytest-qt 4.5.0 / pytest-asyncio 1.3.0 / pytest-mock 3.15.1 / respx 0.22.0
+- pip install 一次成功（PyQt6-Qt6 64MB 約 6 秒下載）
+
+### Headless smoke（QT_QPA_PLATFORM=offscreen）
+測試腳本：`desktop/tests/smoke_launch.py`
+
+```
+tabs found (4): ['Prompt Gallery', '圖像生成 / 修改', '品牌記憶', '設定']
+widgets OK: ImageEditPanel + BrandSettingsTab built, quality default=medium
+  tab 1 'Prompt Gallery' -> smoke-tab-01-Prompt_Gallery.png (45 KB)
+  tab 2 '圖像生成 / 修改' -> smoke-tab-02-圖像生成_-_修改.png (75 KB)
+  tab 3 '品牌記憶' -> smoke-tab-03-品牌記憶.png (88 KB)
+  tab 4 '設定' -> smoke-tab-04-設定.png (37 KB)
+brand status: DESIGN.md 不存在，可填寫後儲存建立
+```
+
+### UI 驗收項目（4 張截圖目視確認）
+
+| Tab | 驗證項目 |
+|---|---|
+| Prompt Gallery | 「已載入 116 條 prompt、17 個類別」+ 「來源：wuyoscar (66 條)、EvoLinkAI (50 條)」雙 source 全顯示 |
+| 圖像生成 / 修改 | API Key 列、Prompt textarea、4 drop slot 平排（drop #1-4）、+ 加入圖片、Mask 選填區（PNG alpha）、Quality 三段 radio + Estimated cost、生成新圖／修改既有圖 兩按鈕 |
+| 品牌記憶 | 專案目錄 + 選擇/載入、5 基本欄位（Project/Brand/Industry/Audience/Tone）、Color Tokens 表 + 加色票/移除、Typography/Visual Rules/Prompt Defaults/Negative Constraints 4 個 textarea、儲存 DESIGN.md 按鈕、status「DESIGN.md 不存在」 fallback OK |
+| 設定 | API Key 提示 + keyring 規範說明 |
+
+### 全工程驗收
+- ✅ AST 15 檔 PASS
+- ✅ design_memory unit test 5/5 PASS（含 SDD §4.3 三欄 table、round trip、None fallback、negative inject、validate warns）
+- ✅ Headless smoke：4 tab 全建立、預設 quality=medium、DESIGN.md 缺失 fallback 正常、4 張截圖總 245KB
+- ✅ 中文渲染正確（Mac Qt offscreen，可能 production native 視窗會有更好字型）
+
+### 待真機驗證（用戶手動）
+桌面版 GUI 在實際 macOS 桌面 launch（非 offscreen）：
+
+```bash
+cd ~/Desktop/APP/forma-studio-v2.5
+source .venv/bin/activate
+python desktop/main.py
+```
+
+預期：開啟主視窗、可實際操作 4 tab、API Key 寫入 macOS Keychain、DESIGN.md 可建立／載入。
+
+### 已交付
+- `desktop/tests/smoke_launch.py`：headless smoke 腳本（保留進 repo 給未來 sprint 重跑）
+- `.gitignore` 加 `.venv/`、`desktop/tests/smoke-artifacts/`
+
+### 待處理
+- [ ] task #13：Sprint 2D 打包（PyInstaller .app + 簽名）
+- [ ] task #12：v3.0 backlog（nexu-io / Comment mode / 多格式匯出）
+
+---
+
 ## [2026-04-29] Sprint 2C 完成：DESIGN.md 共享記憶（parser + GUI + memory injection）
 
 ### 工作流程
