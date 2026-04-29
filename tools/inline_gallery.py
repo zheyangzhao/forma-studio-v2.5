@@ -50,6 +50,8 @@ def build_inline_payload(lib_dir: Path) -> dict:
                 "industries": cat_meta["industries"],
                 "use_cases": cat_meta["use_cases"],
                 "count": cat_meta["count"],
+                # v2.5 §A：保留 cat-level source（多 source 時 wuyoscar / EvoLinkAI 各自的）
+                "source": cat_data.get("source", {}),
                 "prompts": cat_data.get("prompts", []),
             }
         )
@@ -57,6 +59,8 @@ def build_inline_payload(lib_dir: Path) -> dict:
     return {
         "schema_version": index.get("schema_version", 1),
         "source": index.get("source", {}),
+        # v2.5 §A：多 source 索引（PLAN §3.4）
+        "sources": index.get("sources", []),
         "categories": inlined_categories,
         "total_count": index.get("total_count", 0),
     }

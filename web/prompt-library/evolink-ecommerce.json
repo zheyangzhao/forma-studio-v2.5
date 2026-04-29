@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "slug": "evolink-ecommerce",
+  "category": "EvoLinkAI · E-commerce",
+  "title_zh": "電商與商品素材",
+  "industries": [
+    "marketing",
+    "retail",
+    "hospitality",
+    "general"
+  ],
+  "use_cases": [
+    "電商主圖",
+    "商品包裝",
+    "廣告主圖"
+  ],
+  "source": {
+    "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+    "license": "CC BY 4.0",
+    "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+  },
+  "count": 10,
+  "prompts": [
+    {
+      "id": "evolink-ecommerce-113",
+      "no": 113,
+      "title": "E-commerce Main Image - Luxury Amber Perfume Ad",
+      "size": "square",
+      "pixel": "",
+      "credit": "Author: @Polanco_IA",
+      "prompt": "A luxurious cinematic product photograph of a classic rectangular perfume bottle inspired by {argument name=\"brand label\" default=\"N°5 CHANEL PARIS PARFUM\"}, placed upright on a glossy black marble surface with white veining. The bottle is centered slightly to the right, made of clear faceted glass with a large transparent crystal stopper, filled with rich amber-gold perfume that glows from within. Tiny condensation droplets cover the glass, adding texture and realism. Dramatic warm lighting from the upper left creates golden highlights, deep reflections on the marble, and a soft luminous bloom in the background. Wisps of elegant smoke curl around the bottle on both sides, enhancing a moody high-end advertisement feel. Dark background, shallow depth of field, ultra-detailed studio product photography, luxury beauty campaign aesthetic, crisp focus on the bottle, realistic reflections, warm black-and-gold color palette. Add a small white {argument name=\"corner logo\" default=\"Pollo.ai\"} in the top-right corner. Square composition, premium commercial ad, photorealistic, high contrast, refined and sophisticated.",
+      "industries": [
+        "marketing",
+        "retail",
+        "hospitality",
+        "general"
+      ],
+      "source": {
+        "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+        "license": "CC BY 4.0",
+        "author": "@Polanco_IA",
+        "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+      }
+    },
+    {
+      "id": "evolink-ecommerce-114",
+      "no": 114,
+      "title": "E-commerce Main Image - Skincare Product Studio Shot",
+      "size": "square",
+      "pixel": "",
+      "credit": "Author: @Strength04_X",
+      "prompt": "A soft {argument name=\"bottle color\" default=\"cream-colored\"} bottle with a {argument name=\"pump color\" default=\"pastel yellow\"} pump stands on a matte podium, surrounded by silky foam and {argument name=\"flowers\" default=\"chamomile blossoms\"}. The background is a pale yellow gradient with subtle bubble details. The label emphasizes organic chamomile and calming care. Fresh chamomile flowers accentuate the gentle appeal.",
+      "industries": [
+        "marketing",
+        "retail",
+        "hospitality",
+        "general"
+      ],
+      "source": {
+        "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+        "license": "CC BY 4.0",
+        "author": "@Strength04_X",
+        "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+      }
+    },
+    {
+      "id": "evolink-ecommerce-115",
+      "no": 115,
+      "title": "E-commerce Main Image - Tropical Citrus Soda Ad Poster",
+      "size": "square",
+      "pixel": "",
+      "credit": "Author: @edimakorfr",
+      "prompt": "Create a vibrant tropical commercial poster for a citrus soda bottle, in a bright summer advertising style. Show a single large plastic bottle of {argument name=\"product name\" default=\"Soda\"} centered slightly to the right, tilted a little left, with a yellow cap and transparent bottle covered in cold condensation droplets, filled with glowing golden-orange soda. The label should feature sliced oranges and citrus artwork with the brand text \"{argument name=\"product name\" default=\"Soda\"}\", the phrase \"aux agrumes d'été\", and a small green \"500 ml\" mark. Use a sunny beach background with vivid blue sky, turquoise ocean, soft clouds, and blurred tropical palm leaves entering from the upper right corner. Add dramatic water splashes around the base of the bottle, scattered clear ice cubes, and 5 visible citrus pieces in the foreground: 2 orange wedges, 1 lime half, 1 grapefruit half, and 1 partial orange slice at the far right edge. Place large French promotional text on the left: a huge white headline \"{argument name=\"headline text\" default=\"Soda\"}\" with a small splash accent above it, then yellow script text \"aux agrumes d'été\" underneath. Add a yellow paint-stroke badge at mid-left with the text \"LA FRAÎCHEUR QUI PÉTILLE !\". Add a vertical feature list on the lower left with 3 round icons and French captions: \"SAVEURS NATURELLES\", \"SANS COLORANTS ARTIFICIELS\", and \"EXTRA RAFRAÎCHISSANT\". Add a green brushstroke banner at the bottom left reading \"FORMAT PRATIQUE 500 ml\". Add a round beige eco-style seal at the bottom right with green outline and leaf motif, containing the text \"{argument name=\"seal text\" default=\"PLAISIR FRUITÉ À CHAQUE GORGÉE\"}\". Lighting should be glossy and high-energy with strong sun flare from the upper left, saturated citrus colors, crisp packaging detail, realistic droplets, and polished supermarket-ad realism.",
+      "industries": [
+        "marketing",
+        "retail",
+        "hospitality",
+        "general"
+      ],
+      "source": {
+        "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+        "license": "CC BY 4.0",
+        "author": "@edimakorfr",
+        "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+      }
+    },
+    {
+      "id": "evolink-ecommerce-116",
+      "no": 116,
+      "title": "E-commerce Main Image - Industrial Design Presentation Sheet",
+      "size": "square",
+      "pixel": "",
+      "credit": "Author: @ShamsAmin56",
+      "prompt": "Core Subject: [{argument name=\"reference\" default=\"use the uploaded image\"}, keep the details, typography and structure locked 100%]\n\nLayout & Composition: A {argument name=\"presentation type\" default=\"professional industrial design presentation sheet\"}. The image should be organized into a clean grid system.\n\nTop Row: A 3x3 layout showing top-down flat lay views and close-up macro details of materials.\n\nMiddle Section: Three hero shots of the product standing upright in different color ways (Matte Black, Arctic White, and accented variants). The products should be slightly tilted to show depth and form.\n\nBottom Section: A dynamic \"floating\" composition featuring two products overlapping at opposing angles to showcase the front and side profiles simultaneously.\n\nEnvironment & Lighting: Set against a minimalist, neutral studio gray background. Soft top-down lighting with realistic contact shadows. High-end product photography aesthetic.\n\nStyle & Finish: Matte textures, clean silhouettes, and sharp edges. Leave designated blank areas on the product surfaces for \"Placeholder Branding\" and \"Graphic Mockups.\" 4k resolution, Unreal Engine 5 render style, hyper-realistic, clean aesthetic.",
+      "industries": [
+        "marketing",
+        "retail",
+        "hospitality",
+        "general"
+      ],
+      "source": {
+        "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+        "license": "CC BY 4.0",
+        "author": "@ShamsAmin56",
+        "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+      }
+    },
+    {
+      "id": "evolink-ecommerce-117",
+      "no": 117,
+      "title": "E-commerce Main Image - Luxury Fur-Lined Loafer Lifestyle Photo",
+      "size": "square",
+      "pixel": "",
+      "credit": "Author: @dynamicwangs",
+      "prompt": "A warm, editorial-style lifestyle product photo shot indoors from a low close-up angle, focused on a woman's lower legs and feet as she tries on 1 pair of black leather backless loafers with tan faux-fur lining. One loafer is worn on the right foot and the left foot is bare, hovering just above the textured cream shag rug, while the second matching loafer lies on the rug in the lower left foreground. The shoes have smooth black leather uppers, a rounded almond toe, open mule-style heel, plush brown fur spilling out around the opening, and a small polished gold horsebit hardware detail across the vamp. The model wears cropped medium-blue denim jeans with a raw frayed hem. The setting is a cozy minimalist interior with a cream rug featuring 2 thin irregular black lines, a neutral wall, and a leaning rectangular mirror with a medium wood frame in the upper right background, softly reflecting the rug and part of the scene. Use soft natural window light, shallow depth of field, subtle film grain, realistic skin texture, muted beige and black palette, relaxed candid composition, premium fashion catalog mood, high detail, photorealistic.",
+      "industries": [
+        "marketing",
+        "retail",
+        "hospitality",
+        "general"
+      ],
+      "source": {
+        "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+        "license": "CC BY 4.0",
+        "author": "@dynamicwangs",
+        "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+      }
+    },
+    {
+      "id": "evolink-ecommerce-118",
+      "no": 118,
+      "title": "E-commerce Main Image - Luxury Perfume Ad on Marble Vanity",
+      "size": "square",
+      "pixel": "",
+      "credit": "Author: @MiguelMaestroIA",
+      "prompt": "A luxury e-commerce advertising photo of a premium perfume bottle on a polished gray-and-white marble vanity, shot in a warm cinematic studio style with soft golden lighting, shallow depth of field, and elegant reflections. The composition is square and high-end, with the perfume bottle centered slightly right of frame and promotional text on the left. The bottle is a tall sculpted hourglass-shaped glass flacon with smoky transparent gray glass fading darker at the base, a glossy gold spherical cap, a gold collar engraved with fine branding, and a large metallic gold interlocking monogram on the front. Keep the branding-inspired feel but do not add extra products. In the foreground left, include 1 cut-crystal bowl with a gold rim, partially cropped. In the background right, include 1 brushed gold cylindrical vase holding 1 bouquet of soft white flowers, blurred. Behind the bottle, add 1 black marble rectangular box with subtle white veining and gold trim. In the lower right foreground, include 1 draped piece of champagne-colored satin fabric, softly out of focus. The background should be dark, luxurious, and softly blurred, with rich brown-black tones and a vertical shadowed panel on the left to support typography. Add elegant serif headline text on the upper left reading {argument name=\"headline text\" default=\"Premium Perfume,\"} in large warm beige letters, with a smaller serif subheading beneath reading {argument name=\"tagline\" default=\"Subtlety and Elegance\"}, plus a thin short gold horizontal line below the subheading. Place a small white logo in the top-right corner reading {argument name=\"brand logo\" default=\"Pollo.ai\"}. Emphasize premium materials, realistic glass refraction, gold metallic highlights, luxury product photography, refined composition, soft bokeh, and upscale beauty-ad aesthetics.",
+      "industries": [
+        "marketing",
+        "retail",
+        "hospitality",
+        "general"
+      ],
+      "source": {
+        "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+        "license": "CC BY 4.0",
+        "author": "@MiguelMaestroIA",
+        "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+      }
+    },
+    {
+      "id": "evolink-ecommerce-151",
+      "no": 151,
+      "title": "E-commerce Main Image - Miniature Diorama Skincare Advertisement",
+      "size": "square",
+      "pixel": "",
+      "credit": "Author: @Strength04_X",
+      "prompt": "A hyper-realistic miniature diorama product advertisement featuring an oversized luxury skincare pump bottle labeled \"LUXEVEIL Skin Science – Radiance Nourishing Body Lotion\" in cream/beige with a polished gold pump top, placed on a circular platform. Tiny figurine construction workers dressed in yellow coveralls and white hard hats swarm around the bottle climbing scaffolding, painting the bottle with rollers, operating a tower crane, working near industrial tanks and pipework, and unloading a miniature flatbed truck. The scene includes metal scaffolding structures, industrial silos, orange traffic cones, wooden barricades, and storage barrels. The overall color palette is warm beige, cream, gold, and mustard yellow. Studio photography style with soft diffused lighting, no shadows, clean beige background. The concept metaphorically shows workers \"crafting\" or \"building\" the perfect lotion. Tilt-shift miniature aesthetic, ultra-detailed, commercial product photography, 8K resolution, photorealistic CGI render.",
+      "industries": [
+        "marketing",
+        "retail",
+        "hospitality",
+        "general"
+      ],
+      "source": {
+        "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+        "license": "CC BY 4.0",
+        "author": "@Strength04_X",
+        "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+      }
+    },
+    {
+      "id": "evolink-ecommerce-152",
+      "no": 152,
+      "title": "E-commerce Main Image - Traditional Chinese Art and Porcelain Vases",
+      "size": "square",
+      "pixel": "",
+      "credit": "Author: @songguoxiansen",
+      "prompt": "A scarf inspired by 'A Thousand Li of Rivers and Mountains', surrounded by Wang Ximeng's blue-green landscape, with a silky texture and soft lighting.\n\nA famille rose porcelain vase featuring Lady Yang Guifei enjoying flowers, with peony and butterfly patterns in the style of imperial kilns.",
+      "industries": [
+        "marketing",
+        "retail",
+        "hospitality",
+        "general"
+      ],
+      "source": {
+        "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+        "license": "CC BY 4.0",
+        "author": "@songguoxiansen",
+        "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+      }
+    },
+    {
+      "id": "evolink-ecommerce-153",
+      "no": 153,
+      "title": "E-commerce Main Image - Premium Gaming Motherboard Studio Shot",
+      "size": "square",
+      "pixel": "",
+      "credit": "Author: @rojassartorio",
+      "prompt": "A high-end enthusiast ATX gaming motherboard product photo on a dark studio background, shown in a three-quarter top-down perspective angled from the lower left toward the upper right. The board is mostly matte black and gunmetal with sharp geometric armor plates, brushed metal textures, and subtle RGB edge lighting in blue, purple, and magenta. Feature an exposed modern Intel-style CPU socket near the upper center, 4 black DIMM memory slots on the right, large VRM heatsinks across the top and upper left, and multiple reinforced PCIe slots in the lower half. Include 3 major branded heatsink zones: a tall rear I/O shroud at upper left with an illuminated RGB eye logo and the text \"MAXIMUS HERO\", a left-side chipset/slot armor piece with the text \"SUPREMEFX\", and a large angular lower-right chipset cover with a silver ROG-style emblem plus a lower strip that reads \"FOR THOSE WHO DARE\". Show detailed capacitors, headers, power connectors, debug display reading \"88\" at the top right, and a small round start button nearby. Ultra-detailed commercial product photography, crisp focus across the board, realistic reflections on metal, premium luxury tech aesthetic, dramatic low-key lighting, clean black seamless backdrop, no cables, no CPU, no RAM, no other objects.",
+      "industries": [
+        "marketing",
+        "retail",
+        "hospitality",
+        "general"
+      ],
+      "source": {
+        "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+        "license": "CC BY 4.0",
+        "author": "@rojassartorio",
+        "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+      }
+    },
+    {
+      "id": "evolink-ecommerce-154",
+      "no": 154,
+      "title": "E-commerce Main Image - Premium Grain Powder Ad Board",
+      "size": "square",
+      "pixel": "",
+      "credit": "Author: @WooGabriel76263",
+      "prompt": "{\"type\":\"Chinese e-commerce product marketing board\",\"product\":{\"category\":\"instant grain powder drink\",\"brand\":\"五谷磨房\",\"name\":\"核桃芝麻黑豆粉\",\"packaging\":\"matte black retail box with gold Chinese typography and a large swirling bowl graphic on the front, plus individual black sachets inside\",\"net weight\":\"320g (32g×10袋)\"},\"style\":{\"overall\":\"premium dark food advertising layout\",\"color palette\":[\"black\",\"deep brown\",\"warm gold\",\"beige\",\"walnut brown\"],\"lighting\":\"dramatic studio lighting with glossy highlights and warm rim light\",\"mood\":\"luxurious, nourishing, healthy, appetizing\"},\"layout\":{\"format\":\"single tall composite board divided into 5 major sections plus a bottom storyboard table\",\"sections\":[{\"title\":\"主图/Main image\",\"position\":\"top-left\",\"count\":8,\"labels\":[\"五谷磨房\",\"核桃芝麻黑豆粉\",\"32g×10袋 独立包装\",\"五黑谷物\",\"香浓醇厚\",\"独立小袋\",\"即冲即饮\",\"product box and drink cup\"]},{\"title\":\"详情页/Details page\",\"position\":\"top-right\",\"count\":5,\"labels\":[\"黑芝麻\",\"黑豆\",\"黑米\",\"核桃\",\"谷物粉\"]},{\"title\":\"香浓细腻 顺滑好喝\",\"position\":\"mid-right\",\"count\":4,\"labels\":[\"一冲即饮 营养美味\",\"粉质细腻 Fine powder\",\"浓香醇厚 Rich & Smooth\",\"营养代餐 Nutritious\"]},{\"title\":\"冲泡方式 HOW TO MAKE\",\"position\":\"mid-left lower\",\"count\":3,\"labels\":[\"1 倒入一袋粉(32g)\",\"2 加入200ml 热水或牛奶\",\"3 搅拌均匀 即可享用\"]},{\"title\":\"一杯好谷物 轻松好生活\",\"position\":\"lower-left\",\"count\":4,\"labels\":[\"元气早餐\",\"办公室下午茶\",\"健身代餐\",\"睡前暖饮\"]},{\"title\":\"独立小袋 随身携带\",\"position\":\"lower-right\",\"count\":3,\"labels\":[\"独立小袋 便携卫生\",\"锁住新鲜 防潮防氧化\",\"1袋1杯 精准份量\"]},{\"title\":\"视频推广广告 seedance 2.0 视频提示词 + 分镜头脚本\",\"position\":\"bottom full width\",\"count\":7,\"labels\":[\"镜头1 开场-产品展示\",\"镜头2 食材特写\",\"镜头3 倒粉入杯\",\"镜头4 冲泡搅拌\",\"镜头5 饮用场景\",\"镜头6 产品卖点\",\"镜头7 结尾口号\"]}],\"grid\":\"top area split into left main image and right detail page; middle area split into preparation guide and feature panel; lower area split into lifestyle scenarios and sachet carry section; bottom is a full-width tabular storyboard\"},\"scene_elements\":{\"ingredients\":[{\"name\":\"black sesame\",\"form\":\"small black seeds in a round bowl\"},{\"name\":\"black beans\",\"form\":\"glossy whole beans in a round bowl\"},{\"name\":\"black rice\",\"form\":\"dark long grains in a round bowl\"},{\"name\":\"walnuts\",\"form\":\"walnut halves in a round bowl\"},{\"name\":\"grain powder\",\"form\":\"light beige powder in a round bowl\"}],\"serving\":{\"drink\":\"thick gray-brown sesame walnut bean beverage with smooth surface swirl\",\"cup\":\"transparent glass cup with handle\",\"utensil\":\"metal spoon stirring or resting inside drink\"},\"supporting props\":[\"walnuts on table\",\"scattered black beans\",\"grain stalks or wheat stems\",\"dark tabletop\",\"ingredient bowls\",\"open package showing 5 visible sachets\"]},\"text_treatment\":{\"headline_font\":\"bold elegant Chinese display type in metallic gold\",\"body_font\":\"clean sans serif Chinese with occasional English subtitles\",\"accent\":\"thin gold divider lines and circular ingredient frames\"},\"camera_and_composition\":{\"product_shots\":\"front-facing hero box, angled sachet display box, close-up beverage macro\",\"food_photography\":\"high-detail commercial food styling, shallow depth of field, crisp texture emphasis\",\"aspect_ratio\":\"portrait, approximately 9:16\"},\"quality\":\"ultra-detailed commercial design mockup, polished e-commerce key visual plus details page plus ad storyboard, 4K\"}",
+      "industries": [
+        "marketing",
+        "retail",
+        "hospitality",
+        "general"
+      ],
+      "source": {
+        "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+        "license": "CC BY 4.0",
+        "author": "@WooGabriel76263",
+        "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+      }
+    }
+  ]
+}

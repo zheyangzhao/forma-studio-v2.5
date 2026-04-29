@@ -226,7 +226,103 @@
       ],
       "count": 7,
       "file": "scientific-and-educational.json"
+    },
+    {
+      "slug": "evolink-ecommerce",
+      "category": "EvoLinkAI · E-commerce",
+      "title_zh": "電商與商品素材",
+      "industries": [
+        "marketing",
+        "retail",
+        "hospitality",
+        "general"
+      ],
+      "use_cases": [
+        "電商主圖",
+        "商品包裝",
+        "廣告主圖"
+      ],
+      "count": 10,
+      "file": "evolink-ecommerce.json"
+    },
+    {
+      "slug": "evolink-ad-creative",
+      "category": "EvoLinkAI · Ad Creative",
+      "title_zh": "廣告創意素材",
+      "industries": [
+        "marketing",
+        "design",
+        "general"
+      ],
+      "use_cases": [
+        "廣告 visual",
+        "品牌活動素材",
+        "促銷文宣"
+      ],
+      "count": 10,
+      "file": "evolink-ad-creative.json"
+    },
+    {
+      "slug": "evolink-poster",
+      "category": "EvoLinkAI · Poster & Illustration",
+      "title_zh": "海報與插畫",
+      "industries": [
+        "marketing",
+        "events",
+        "design"
+      ],
+      "use_cases": [
+        "活動海報",
+        "宣傳插畫",
+        "視覺主視覺"
+      ],
+      "count": 10,
+      "file": "evolink-poster.json"
+    },
+    {
+      "slug": "evolink-ui",
+      "category": "EvoLinkAI · UI & Social Media",
+      "title_zh": "UI 與社群素材",
+      "industries": [
+        "product",
+        "design"
+      ],
+      "use_cases": [
+        "App / Web mockup",
+        "社群圖卡"
+      ],
+      "count": 10,
+      "file": "evolink-ui.json"
+    },
+    {
+      "slug": "evolink-comparison",
+      "category": "EvoLinkAI · Comparison & Community",
+      "title_zh": "比較與社群範例",
+      "industries": [
+        "marketing",
+        "education",
+        "product"
+      ],
+      "use_cases": [
+        "A/B 對照",
+        "Before/After",
+        "社群示範"
+      ],
+      "count": 10,
+      "file": "evolink-comparison.json"
     }
   ],
-  "total_count": 66
+  "total_count": 116,
+  "sources": [
+    {
+      "repo": "wuyoscar/gpt_image_2_skill",
+      "license": "CC BY 4.0",
+      "count": 66
+    },
+    {
+      "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+      "license": "CC BY 4.0",
+      "count": 50
+    }
+  ]
 }

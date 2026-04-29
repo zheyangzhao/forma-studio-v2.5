@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "slug": "evolink-ad-creative",
+  "category": "EvoLinkAI · Ad Creative",
+  "title_zh": "廣告創意素材",
+  "industries": [
+    "marketing",
+    "design",
+    "general"
+  ],
+  "use_cases": [
+    "廣告 visual",
+    "品牌活動素材",
+    "促銷文宣"
+  ],
+  "source": {
+    "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+    "license": "CC BY 4.0",
+    "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+  },
+  "count": 10,
+  "prompts": [
+    {
+      "id": "evolink-ad-creative-090",
+      "no": 90,
+      "title": "4-Panel Japanese Digital Ad Banner Grid",
+      "size": "square",
+      "pixel": "",
+      "credit": "Author: @makaneko_AI",
+      "prompt": "{\n  \"type\": \"2x2 grid of Japanese digital advertisement banners\",\n  \"layout\": {\n    \"structure\": \"4 equal quadrants\",\n    \"quadrants\": [\n      {\n        \"position\": \"top-left\",\n        \"theme\": \"Travel\",\n        \"subject\": \"A couple holding hands on a white sand beach, looking out at turquoise ocean water under a bright blue sky.\",\n        \"elements\": [\"red hibiscus flower in bottom left corner\"],\n        \"text_labels\": [\n          \"今年こそ、解き放て。\",\n          \"{argument name=\\\"travel destination\\\" default=\\\"沖縄旅行\\\"}\",\n          \"3日間の癒やし旅\",\n          \"航空券+ホテル\",\n          \"39,800円〜\",\n          \"絶景、グルメ、体験 ぜんぶ叶う!\"\n        ],\n        \"icons\": {\n          \"count\": 3,\n          \"descriptions\": [\"airplane\", \"hotel building\", \"car\"]\n        }\n      },\n      {\n        \"position\": \"top-right\",\n        \"theme\": \"Skincare\",\n        \"subject\": \"Close-up portrait of a young woman with glowing, dewy skin, eyes closed, gently touching her cheeks.\",\n        \"elements\": [\n          \"soft pink gradient background\",\n          \"dynamic water splash effects\",\n          \"pink cosmetic jar labeled '{argument name=\\\"skincare product name\\\" default=\\\"LUMIÈRE\\\"} Brightening Gel'\"\n        ],\n        \"text_labels\": [\n          \"毛穴・くすみ卒業!\",\n          \"透明感あふれる\",\n          \"水光肌へ\",\n          \"新感覚スキンケア\",\n          \"初回限定 78%OFF\",\n          \"{argument name=\\\"discount price\\\" default=\\\"1,980円\\\"}\"\n        ],\n        \"badges\": {\n          \"count\": 3,\n          \"style\": \"gold circular\",\n          \"labels\": [\"毛穴ケア\", \"高保湿\", \"ハリ・ツヤ\"]\n        }\n      },\n      {\n        \"position\": \"bottom-left\",\n        \"theme\": \"Gourmet Food\",\n        \"subject\": \"Thick, sliced, medium-rare steak sizzling on a dark grill plate.\",\n        \"elements\": [\n          \"garlic chips\",\n          \"rosemary sprig\",\n          \"dark background with smoke and glowing embers\"\n        ],\n        \"text_labels\": [\n          \"とろける旨さ!\",\n          \"{argument name=\\\"food item\\\" default=\\\"黒毛和牛\\\"}\",\n          \"贅沢ステーキ\",\n          \"期間限定\",\n          \"特別価格\",\n          \"通常価格 8,980円\",\n          \"4,980円\"\n        ],\n        \"badges\": {\n          \"count\": 1,\n          \"style\": \"red circular\",\n          \"labels\": [\"A4 A5等級\"]\n        }\n      },\n      {\n        \"position\": \"bottom-right\",\n        \"theme\": \"Online Education\",\n        \"subject\": \"Young man in a blue shirt studying at a desk, writing in a notebook next to an open laptop.\",\n        \"elements\": [\"bright indoor lighting\", \"desk environment\"],\n        \"text_labels\": [\n          \"スキマ時間で\",\n          \"{argument name=\\\"education goal\\\" default=\\\"最短合格!\\\"}\",\n          \"オンライン資格講座\",\n          \"スマホで完結\",\n          \"効率学習で差がつく!\",\n          \"今だけ! 受講料 20%OFF\"\n        ],\n        \"badges\": {\n          \"count\": 1,\n          \"style\": \"blue circular\",\n          \"labels\": [\"受講者数 10万人 突破!\"]\n        },\n        \"icons\": {\n          \"count\": 2,\n          \"descriptions\": [\"smartphone\", \"open book\"]\n        }\n      }\n    ]\n  }\n}",
+      "industries": [
+        "marketing",
+        "design",
+        "general"
+      ],
+      "source": {
+        "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+        "license": "CC BY 4.0",
+        "author": "@makaneko_AI",
+        "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+      }
+    },
+    {
+      "id": "evolink-ad-creative-112",
+      "no": 112,
+      "title": "Anime Character Brand Identity & Merch Board",
+      "size": "square",
+      "pixel": "",
+      "credit": "Author: @chi_vc_",
+      "prompt": "{\n  \"type\": \"brand identity and merchandise design board\",\n  \"theme\": {\n    \"color_palette\": \"{argument name=\\\"theme color\\\" default=\\\"pastel pink\\\"} and white\",\n    \"motif\": \"{argument name=\\\"motif\\\" default=\\\"cherry blossoms\\\"} and pink hearts\"\n  },\n  \"character\": {\n    \"description\": \"anime girl with short brown bob hair, pink eyes, wearing a white hoodie, gentle smile\"\n  },\n  \"branding\": {\n    \"main_logo\": \"{argument name=\\\"character name\\\" default=\\\"癒音ちー\\\"}\",\n    \"sub_logo\": \"{argument name=\\\"character subtext\\\" default=\\\"ゆおんちー\\\"}\"\n  },\n  \"layout\": {\n    \"sections\": [\n      {\n        \"type\": \"header banner\",\n        \"position\": \"top\",\n        \"elements\": [\"large main logo\", \"sub logo\", \"cherry blossom graphics\", \"character portrait on the right\"]\n      },\n      {\n        \"type\": \"product packaging\",\n        \"position\": \"middle left\",\n        \"elements\": [\"1 square box with heart-shaped transparent window showing pink heart candies\", \"character illustration on box\", \"2 individual candy wrappers\", \"5 scattered heart candies\"]\n      },\n      {\n        \"type\": \"promotional poster\",\n        \"position\": \"middle right\",\n        \"elements\": [\"character portrait\", \"heart-shaped candy bowl\", \"main logo\", \"text '4.26 NEW OPEN'\", \"text '{argument name=\\\"social handle\\\" default=\\\"@yuonchii\\\"}'\"]\n      },\n      {\n        \"type\": \"horizontal web banner\",\n        \"position\": \"lower middle\",\n        \"elements\": [\"main logo\", \"cherry blossoms\", \"character portrait on the right\"]\n      },\n      {\n        \"type\": \"social media profile mockup\",\n        \"position\": \"bottom left\",\n        \"elements\": [\"header image with logo\", \"1 circular profile picture\", \"handle '{argument name=\\\"social handle\\\" default=\\\"@yuonchii\\\"}'\", \"1 follow button\", \"mock bio text\"]\n      },\n      {\n        \"type\": \"merchandise collection\",\n        \"position\": \"bottom right\",\n        \"count\": 9,\n        \"items\": [\"1 white t-shirt with logo\", \"1 white mug with character\", \"4 round pin badges\", \"1 acrylic keychain\", \"2 candy packets\"]\n      }\n    ]\n  }\n}",
+      "industries": [
+        "marketing",
+        "design",
+        "general"
+      ],
+      "source": {
+        "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+        "license": "CC BY 4.0",
+        "author": "@chi_vc_",
+        "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+      }
+    },
+    {
+      "id": "evolink-ad-creative-108",
+      "no": 108,
+      "title": "Dark Mode Marketing Case Study UI",
+      "size": "square",
+      "pixel": "",
+      "credit": "Author: @IndieDevHailey",
+      "prompt": "{\n  \"type\": \"UI/UX landing page mockup\",\n  \"theme\": \"dark mode, sleek modern aesthetic, glassmorphism, {argument name=\\\"primary accent color\\\" default=\\\"neon purple and blue\\\"} glowing accents\",\n  \"header\": {\n    \"logo\": \"{argument name=\\\"brand name\\\" default=\\\"goViralX\\\"}\",\n    \"top_right_tag\": \"VIRAL CAMPAIGN CASE STUDY\"\n  },\n  \"layout\": {\n    \"sections\": [\n      {\n        \"name\": \"Hero\",\n        \"headline\": \"{argument name=\\\"hero headline\\\" default=\\\"How We Created 10M+ Viral Impact\\\"}\",\n        \"subheadline\": \"3天引爆全网, 助力品牌实现指数级增长\",\n        \"stats_row\": {\n          \"count\": 4,\n          \"labels\": [\"总播放量\", \"互动率\", \"转化咨询\", \"执行周期\"],\n          \"values\": [\"{argument name=\\\"main statistic\\\" default=\\\"10,240,000+\\\"}\", \"18.7%\", \"3,200+\", \"72小时\"]\n        },\n        \"visual\": \"cinematic shot of a person in a hoodie looking at glowing digital screens and graphs, large play button overlay\"\n      },\n      {\n        \"name\": \"Strategy\",\n        \"title\": \"Our 3-Day Execution Strategy\",\n        \"layout_type\": \"vertical timeline\",\n        \"steps_count\": 3,\n        \"elements_per_step\": [\"timeline node\", \"title\", \"bullet points\", \"video thumbnail with play button\", \"description box\"]\n      },\n      {\n        \"name\": \"Performance\",\n        \"title\": \"Data-Driven Performance\",\n        \"left_column\": {\n          \"stat_cards_count\": 4,\n          \"values\": [\"10M+\", \"43%\", \"28,000+\", \"3,200+\"]\n        },\n        \"right_column\": {\n          \"charts_count\": 2,\n          \"chart_1\": \"line graph showing 7-day growth peaking at Day 3\",\n          \"chart_2\": \"horizontal segmented bar chart showing platform distribution (TikTok 52%, Instagram 24%, X 15%, YouTube 9%)\"\n        }\n      },\n      {\n        \"name\": \"Keys to Success\",\n        \"title\": \"The 3 Keys to Viral Success\",\n        \"cards_count\": 3,\n        \"card_elements\": [\"glowing icon (fire, target, antenna)\", \"title\", \"description\", \"VIEW DETAIL link\"]\n      },\n      {\n        \"name\": \"Social Proof\",\n        \"title\": \"TRUSTED BY CREATORS & BRANDS\",\n        \"left_column\": {\n          \"logos_count\": 8,\n          \"grid\": \"2x4\",\n          \"brands\": [\"SHEIN\", \"SHOPLINE\", \"Blueglass\", \"instacart\", \"lemon8\", \"mi\", \"CIDER\", \"bellroy\"]\n        },\n        \"right_column\": {\n          \"testimonial_cards_count\": 2,\n          \"elements\": [\"quote\", \"author title (SaaS Founder, Growth Manager)\"]\n        }\n      },\n      {\n        \"name\": \"Call to Action\",\n        \"title\": \"READY TO GO VIRAL?\",\n        \"interactive_elements\": [\"text input field\", \"glowing button with text '{argument name=\\\"call to action text\\\" default=\\\"获取专属增长方案 ->\\\"}'\"],\n        \"visual\": \"3D render of a rocket ship taking off with purple and blue flames\"\n      }\n    ]\n  }\n}",
+      "industries": [
+        "marketing",
+        "design",
+        "general"
+      ],
+      "source": {
+        "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+        "license": "CC BY 4.0",
+        "author": "@IndieDevHailey",
+        "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+      }
+    },
+    {
+      "id": "evolink-ad-creative-107",
+      "no": 107,
+      "title": "18-Panel Mascot Brand Identity Document",
+      "size": "square",
+      "pixel": "",
+      "credit": "Author: @Colin_Leeee",
+      "prompt": "{\n  \"type\": \"18-panel brand identity and character design document\",\n  \"brand\": {\n    \"name\": \"{argument name=\\\"brand name\\\" default=\\\"沐阳 MUYANG TEA\\\"}\",\n    \"industry\": \"{argument name=\\\"industry\\\" default=\\\"tea shop\\\"}\",\n    \"colors\": [\"{argument name=\\\"primary color\\\" default=\\\"yellow\\\"}\", \"{argument name=\\\"secondary color\\\" default=\\\"green\\\"}\", \"white\", \"brown\", \"dark green\"]\n  },\n  \"subject\": \"{argument name=\\\"character description\\\" default=\\\"3D rendered cute Shiba Inu mascot wearing a green apron\\\"}\",\n  \"layout\": {\n    \"grid\": \"3 columns by 6 rows\",\n    \"sections\": [\n      {\n        \"title\": \"01 品牌DNA分析 / BRAND DNA ANALYSIS\",\n        \"elements\": [\"logo\", \"5 color swatches\", \"6 icons\", \"target audience charts\"]\n      },\n      {\n        \"title\": \"02 概念构思 / CONCEPT MOODBOARD\",\n        \"elements\": [\"5 photo references\", \"4 mood icons\", \"design equation\"]\n      },\n      {\n        \"title\": \"03 形态研究 / FORM STUDY\",\n        \"elements\": [\"4 logo anatomy icons\", \"4 evolution steps\", \"4 silhouettes\"]\n      },\n      {\n        \"title\": \"04 概念探索 / CONCEPT EXPLORATION\",\n        \"elements\": [\"12 line-art character sketches\"]\n      },\n      {\n        \"title\": \"05 精细线稿 / REFINED LINE ART\",\n        \"elements\": [\"3 rows of front and side line art with proportion guides\"]\n      },\n      {\n        \"title\": \"06 细节精修 / DETAIL REFINEMENT\",\n        \"elements\": [\"2 full-body renders with labels\", \"4 circular close-ups\"]\n      },\n      {\n        \"title\": \"07 表情设定 / EXPRESSION SHEET\",\n        \"elements\": [\"11 3D rendered head expressions\"]\n      },\n      {\n        \"title\": \"08 姿势库 / POSE LIBRARY\",\n        \"elements\": [\"9 full-body 3D rendered poses\"]\n      },\n      {\n        \"title\": \"09 转身视图 / TURNAROUND VIEW\",\n        \"elements\": [\"5 full-body 3D renders\", \"5 matching line-art views\"]\n      },\n      {\n        \"title\": \"10 色彩开发 / COLOR DEVELOPMENT\",\n        \"elements\": [\"5 rows of 5-color palettes\", \"color psychology text\"]\n      },\n      {\n        \"title\": \"11 材质规格 / MATERIAL SPECIFICATION\",\n        \"elements\": [\"5 texture swatches\", \"property sliders\", \"4 manufacturing icons\"]\n      },\n      {\n        \"title\": \"12 色彩应用 / COLOR APPLICATION\",\n        \"elements\": [\"4 color variant renders\", \"2 light/dark renders\", \"4 contrast rating circles\"]\n      },\n      {\n        \"title\": \"13 构造指南 / CONSTRUCTION GUIDE\",\n        \"elements\": [\"2 line-art diagrams for geometry and grid\"]\n      },\n      {\n        \"title\": \"14 设计系统规则 / DESIGN SYSTEM RULES\",\n        \"elements\": [\"minimum size icons\", \"clear space diagram\", \"4 usage examples\"]\n      },\n      {\n        \"title\": \"15 资产变体 / ASSET VARIANTS\",\n        \"elements\": [\"3 size variants\", \"3 line-art variants\", \"3 simplified flat heads\"]\n      },\n      {\n        \"title\": \"16 数字应用 / DIGITAL APPLICATIONS\",\n        \"elements\": [\"1 app icon\", \"2 social avatars\", \"UI elements\", \"3-step animation cycle\"]\n      },\n      {\n        \"title\": \"17 实物应用 / PHYSICAL APPLICATIONS\",\n        \"elements\": [\"plush toy mockup\", \"packaging mockup\", \"merchandise mockup\", \"storefront mockup\"]\n      },\n      {\n        \"title\": \"18 最终主视觉 / FINAL RENDERING\",\n        \"elements\": [\"large high-res 3D render of mascot holding tea\", \"logo\", \"file format list\"]\n      }\n    ]\n  }\n}",
+      "industries": [
+        "marketing",
+        "design",
+        "general"
+      ],
+      "source": {
+        "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+        "license": "CC BY 4.0",
+        "author": "@Colin_Leeee",
+        "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+      }
+    },
+    {
+      "id": "evolink-ad-creative-166",
+      "no": 166,
+      "title": "Japanese Chinese Food Delivery Flyer",
+      "size": "square",
+      "pixel": "",
+      "credit": "Author: @xc5_",
+      "prompt": "A Japanese neighborhood Chinese restaurant delivery flyer for mailbox posting (3:4 aspect ratio). Designed to look like a double-sided B5 print.\n\nFlyer characteristics (following the grammar of real delivery flyers):\n- Flashy red and yellow color scheme.\n- Large text at the top: \"Delivery Available! {argument name=\"shop name\" default=\"Mona-Hanten\"}\" (shadowed Gothic font).\n- An illustration of a {argument name=\"character\" default=\"Chinese girl in a red cheongsam with a brown short bob\"} holding ramen and saying \"Welcome!\" in a speech bubble.\n- A menu photo grid (4x3) featuring various dishes: different types of ramen, fried rice, gyoza, sweet and sour pork, shrimp in chili sauce, mapo tofu, liver and leek stir-fry, tenshinhan, twice-cooked pork, spring rolls, annin tofu, and fried rice sets.\n- Names and prices for each dish.\n- A large yellow banner saying \"Free delivery on all menu items over ¥1,000!\".\n- \"Order by phone! ☎ 072-XX-XXXX\" emphasized with a red circle.\n- Business hours \"11:00-22:00 (Closed on Tuesdays)\".\n- Delivery area map (simple schematic map).\n- Coupon (perforated line for clipping): \"One free plate of gyoza with this flyer!\".\n\nTexture of cheap paper printing. Includes fold marks. Precision that could be mistaken for a real Japanese delivery flyer.",
+      "industries": [
+        "marketing",
+        "design",
+        "general"
+      ],
+      "source": {
+        "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+        "license": "CC BY 4.0",
+        "author": "@xc5_",
+        "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+      }
+    },
+    {
+      "id": "evolink-ad-creative-167",
+      "no": 167,
+      "title": "Pastel Jellyfish Room Goods Poster",
+      "size": "square",
+      "pixel": "",
+      "credit": "Author: @Ayu_AI_0912",
+      "prompt": "{\"type\":\"pastel lifestyle poster / character room-goods feature sheet\",\"theme\":\"soft dreamy lavender jellyfish aesthetic\",\"style\":\"Japanese cute editorial graphic, airy white background, pastel lilac palette, delicate handwritten notes, sparkles and tiny doodles, soft product photography mixed with magazine layout\",\"subject\":{\"character\":{\"name\":\"{argument name=\\\"character name\\\" default=\\\"くらげちゃん\\\"}\",\"appearance\":\"young woman with a short platinum-blonde bob haircut, wearing a fluffy pale-lavender zip hoodie over a white inner top, shown from chest up on the lower right, face intentionally obscured with a plain beige rectangle\"}},\"layout\":{\"orientation\":\"vertical poster\",\"background\":\"clean white with faint pastel doodles of stars, bubbles, tiny jellyfish, and musical notes\",\"sections\":[{\"title\":\"header\",\"position\":\"top\",\"count\":5,\"labels\":[\"speech bubble intro\",\"main title\",\"small subtitle GOODS\",\"horizontal lavender ribbon tagline\",\"round badge on the top right\"]},{\"title\":\"featured goods grid\",\"position\":\"upper and middle left\",\"count\":6,\"labels\":[\"ゆらゆらくらげランプ\",\"くらげと夢見るベッドリネン\",\"くらげシェルミラー\",\"くらげグラデマグ\",\"くらげのときめき収納ボックス\",\"くらげふわもこマット\"]},{\"title\":\"side handwritten note\",\"position\":\"upper right\",\"count\":1,\"labels\":[\"みんなも くらげちゃんRoomで いっしょに まったりしよー♡♡\"]},{\"title\":\"room concept box\",\"position\":\"lower left\",\"count\":1,\"labels\":[\"くらげちゃんの お部屋作りのこだわり\"]},{\"title\":\"pick up circle\",\"position\":\"lower center-left\",\"count\":1,\"labels\":[\"Pick up!\"]}],\"product_images\":{\"count\":6,\"items\":[{\"name\":\"ゆらゆらくらげランプ\",\"description\":\"small translucent jellyfish-shaped lamp on a white base, glowing softly in pale blue-lavender\"},{\"name\":\"くらげと夢見るベッドリネン\",\"description\":\"plush pastel-lavender bed with fluffy comforter and pillows, dreamy cozy bedroom styling\"},{\"name\":\"くらげシェルミラー\",\"description\":\"small tabletop mirror with a puffy shell-like pastel-lilac frame and rounded base\"},{\"name\":\"くらげグラデマグ\",\"description\":\"ceramic mug with lavender-to-pink gradient and a simple jellyfish illustration\"},{\"name\":\"くらげのときめき収納ボックス\",\"description\":\"pastel storage box holding cosmetics and small bottles, decorated with a jellyfish emblem\"},{\"name\":\"くらげふわもこマット\",\"description\":\"small fluffy cloud-like or jellyfish-like mat in pale lavender and white\"}]},\"text_elements\":{\"main_title\":\"{argument name=\\\"headline text\\\" default=\\\"くらげちゃんの お部屋アイテム\\\"}\",\"badge_text\":\"くらげちゃんの Room お部屋作りの こだわりポイントも 教えちゃうよ。\",\"tagline\":\"ふわふわで甘くて、ちょっぴり夢みたいな私のお部屋へようこそ♡\",\"speech_bubble\":\"くらげちゃんの お気に入りだけ集めた お部屋アイテムを紹介するよ♪\",\"concept_points\":{\"count\":3,\"items\":[\"色は白とラベンダーで統一!\",\"光が集まるふわっとした空間に\",\"お友達入りのアイテムに囲まれて 自分らしくいられる空間を大切にしてるよ♪\"]},\"product_blurbs\":\"each product has a short handwritten Japanese description in a cute casual font beside or below the image\"},\"composition\":\"the poster is left-heavy with product cards and text, while the character portrait occupies the lower right third, slightly overlapping the layout\",\"color_palette\":{\"count\":5,\"colors\":[\"white\",\"pastel lavender\",\"soft lilac\",\"pale gray-violet\",\"touches of pastel blue-pink gradient\"]},\"rendering_notes\":\"keep everything very soft, feminine, and cozy; rounded corners on all product photos; mix of bold Japanese headline typography and light handwritten annotations; subtle shadows; clean high-key lighting; social-media-ready editorial collage aesthetic\"}",
+      "industries": [
+        "marketing",
+        "design",
+        "general"
+      ],
+      "source": {
+        "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+        "license": "CC BY 4.0",
+        "author": "@Ayu_AI_0912",
+        "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+      }
+    },
+    {
+      "id": "evolink-ad-creative-143",
+      "no": 143,
+      "title": "Magical Seed Packet Diorama",
+      "size": "square",
+      "pixel": "",
+      "credit": "Author: @AllaAisling",
+      "prompt": "Epic 3D scene: a weathered seed packet lying open on a potting bench, its promise erupting into the garden it describes. The illustration on the front becomes real. {argument name=\"plant type\" default=\"[PLANT / FLOWER]\"} growing at full scale from the paper, roots visible through the packet's base pushing into soil below.\n{argument name=\"detail left\" default=\"[DETAIL 1]\"} in full bloom at one corner. {argument name=\"detail right\" default=\"[DETAIL 2]\"} mid-growth at the other, not yet what it will be.\nTiny insects that belong to this plant, {argument name=\"insect type\" default=\"[BEE / BUTTERFLY / BEETLE]\"}, hovering at correct scale.\nThe written instructions on the back become garden calendar, \"sow in spring\" manifests as actual spring light. \"full sun\" manifests as a single shaft of it, hitting the tallest bloom perfectly.\nScattered seeds between packet and soil each showing their germination stage, split coat, first root, first shoot, first leaf.\nThe packet's torn top edge becomes a treeline.\nPotting bench surface with soil scatter and water droplets.\nTilt-shift depth of field, greenhouse morning light, the packet as the garden it always intended.",
+      "industries": [
+        "marketing",
+        "design",
+        "general"
+      ],
+      "source": {
+        "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+        "license": "CC BY 4.0",
+        "author": "@AllaAisling",
+        "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+      }
+    },
+    {
+      "id": "evolink-ad-creative-144",
+      "no": 144,
+      "title": "Luxury Chronograph Watch Ad",
+      "size": "square",
+      "pixel": "",
+      "credit": "Author: @AlwaveNazca",
+      "prompt": "A dramatic luxury product advertising image for a motorsport-inspired chronograph wristwatch in a dark studio. Center-left foreground, show a single stainless steel chronograph watch standing upright at a slight three-quarter angle, with a black dial, two red-accent subdials, slim silver hour markers, a tachymeter bezel, and visible crown and pushers on the right side. The watch has a black leather strap with bold red stitching along both edges and a sporty premium finish. To the right of the watch, place one black square presentation box slightly behind it, textured like leather, with red stitching around the lid and a silver embossed eye-shaped logo above the text “NESS STUDIO” and smaller red text “TRACK SURFACE.” At the top center of the composition, add the same silver eye logo with the words “NESS STUDIO” and smaller “BY NICOLAS.” Across the background, place one oversized blurred word, {argument name=\"headline text\" default=\"PRECISION\"}, in large gray capital letters spanning nearly the full width. The scene is set against a deep black background with cinematic red and white horizontal light streaks crossing behind the products from left to right, suggesting speed and racetrack energy. Use a glossy wet ground plane with reflective texture, catching red highlights and mirrorlike reflections beneath the watch and box. At the bottom center, add the text “CHRONOGRAPH SERIES” in clean white spaced capitals with thin red horizontal lines extending on both sides, and below it smaller red capitals reading {argument name=\"tagline text\" default=\"ALSACE MADE\"}. Color palette: black, charcoal gray, silver steel, vivid racing red, and a touch of white. Lighting should be high-contrast and premium, with crisp specular highlights on the metal case, subtle soft fill on the box, and moody shadows. Overall style: ultra-polished commercial product photography, luxury watch campaign, sharp focus on the products, sleek branding, high-end automotive aesthetic.",
+      "industries": [
+        "marketing",
+        "design",
+        "general"
+      ],
+      "source": {
+        "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+        "license": "CC BY 4.0",
+        "author": "@AlwaveNazca",
+        "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+      }
+    },
+    {
+      "id": "evolink-ad-creative-145",
+      "no": 145,
+      "title": "Neon Nike Lumina Ad Poster",
+      "size": "square",
+      "pixel": "",
+      "credit": "Author: @AlwaveNazca",
+      "prompt": "A high-energy vertical Nike fashion campaign poster featuring a single athletic young woman mid-jump against a futuristic neon studio background. She is captured in a dynamic airborne pose with one knee bent up, the other leg folded back, one arm extended outward and the other bent near her chest, conveying motion and power. Her face is obscured by a clean rectangular blur block centered over the face. She wears a cropped iridescent white hooded windbreaker with a black zipper and small Nike logo on the chest, holographic metallic lavender-blue leggings with a subtle Nike swoosh on the thigh, a black branded waistband visible above the leggings, and white chunky Nike sneakers. Her brown hair is tied in a high ponytail flying outward with the jump. Behind her, enormous glowing white serif letters spell “NIKE” across the upper half, with a small white Nike swoosh centered above the word. Across the middle background, the phrase “LUMINA” appears once in wide bold glowing letters with a horizontal glitch and scanline distortion effect, partially obscured by the model. The color palette is saturated magenta, violet, cyan, and electric blue with strong bloom, glossy highlights, lens flares, and chromatic aberration. Add sweeping circular light trails wrapping around the model’s legs and body, suggesting speed and motion. The overall style is premium sportswear advertising, ultra-polished, cinematic, high contrast, hyperreal retouching, crisp product detail, dramatic rim lighting, and a luminous holographic aesthetic. Place 2 small text lines at the bottom: bottom left reads {argument name=\"tagline text\" default=\"LIGHT. MOTION. ENERGY.\"}, bottom right reads {argument name=\"collection name\" default=\"NIKE LUMINA COLLECTION\"} followed by a small Nike swoosh. Include exactly 3 visible Nike swooshes total: 1 above the large NIKE headline, 1 on the jacket chest, and 1 on the leggings.",
+      "industries": [
+        "marketing",
+        "design",
+        "general"
+      ],
+      "source": {
+        "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+        "license": "CC BY 4.0",
+        "author": "@AlwaveNazca",
+        "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+      }
+    },
+    {
+      "id": "evolink-ad-creative-146",
+      "no": 146,
+      "title": "Streetwear Sneaker Poster Ad",
+      "size": "square",
+      "pixel": "",
+      "credit": "Author: @AlwaveNazca",
+      "prompt": "Create a bold streetwear poster advertisement for {argument name=\"brand name\" default=\"NESS STUDIO\"} featuring a young adult model seated casually on the ground in a low-angle fashion pose, one knee raised and one leg extended toward the camera so the sneaker in front appears oversized and dominant. The model wears a dark brown oversized leather bomber jacket, a black shirt, light blue loose-fit jeans, white socks, and chunky black-white-gray sneakers with a red accent in the sole and the {argument name=\"brand name\" default=\"NESS STUDIO\"} logo visible on the shoe side and tongue. The face is intentionally obscured by a soft rectangular blur block centered over the face. Use an off-white textured paper background with distressed grunge design elements and collage layering. Behind the model, place a large rough red paint brushstroke shape spanning diagonally across the center. Add black ink splatters, sketch circles, torn paper scraps, and hand-painted graffiti accents. Include 4 major graphic doodles: a large black X in the upper right, a hand-drawn upward arrow in the lower left, a rough crown sketch in the lower right, and a circular scribble near the top center. In the upper left, place a stylized eye logo above the text \"{argument name=\"brand name\" default=\"NESS STUDIO\"}\" and a smaller tagline below reading \"A MOMENT OF YOUR STYLE\". On the left middle area, add the handwritten slogan \"INNOVATE CREATE INSPIRE\" in stacked black brush lettering. On the right middle area, place a torn black paper patch with the handwritten white slogan \"BUILT DIFFERENT MOVE DIFFERENT\" and a red underline stroke. In the lower left near the shoe, add a black distressed label sticker containing a globe scribble, the text \"{argument name=\"brand name\" default=\"NESS STUDIO\"}\", and a barcode. Along the bottom footer, create a clean horizontal strip with 3 social media icons and handles separated by thin vertical dividers: Instagram, Facebook, and Twitter, each followed by \"@NESS.STUDIO\". The overall style should be edgy, urban, youthful, high-contrast, editorial street fashion, mixing product advertising photography with graffiti poster design, collage textures, and dynamic branding.",
+      "industries": [
+        "marketing",
+        "design",
+        "general"
+      ],
+      "source": {
+        "repo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+        "license": "CC BY 4.0",
+        "author": "@AlwaveNazca",
+        "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts"
+      }
+    }
+  ]
+}
