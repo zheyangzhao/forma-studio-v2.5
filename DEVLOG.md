@@ -4,6 +4,30 @@
 
 ---
 
+## [2026-04-29] Sprint 1.5 計劃書定稿（B + A + Tier 1.6）
+
+### 本次完成
+- 由 Codex CLI 產出 `docs/PLAN-sprint-1.5.md`（1236 行 / 40 KB / 七大章節）
+- 整合範圍盤點：
+  - **B**（最優先）：Sprint 1 verification — gallery 接到 React 4 區塊 UI
+  - **A**：EvoLinkAI/awesome-gpt-image-2-prompts 整合（CC BY 4.0、8745 stars）
+    - 篩選 30-50 條跨行業適用條目（收 E-commerce / Ad Creative / Comparison / Poster / UI；排除 Portrait / Cosplay / Korean Idol 等人物肖像權風險）
+    - 預期 gallery 從 66 → 100-115 條
+  - **Tier 1.6**：Claude 一鍵增強鈕（靈感來自 claude.ai 自製版）
+- nexu-io/open-design 評估：**不整合**（架構衝突），但 design-systems markdown 格式列入 v3.0 借鑑
+
+### 已交付檔案
+- `docs/PLAN-sprint-1.5.md`：Sprint 1.5 完整實作計劃書
+
+### 待處理（task #8-12 已建檔，避免遺忘）
+- [ ] #8 [B] gallery 接 4 區塊 UI（下個 session 主菜）
+- [ ] #9 [A] EvoLinkAI prompt 庫整合
+- [ ] #10 [Tier 1.6] Claude 一鍵增強鈕
+- [ ] #11 [Tier 2 Sprint 2] PyQt6 桌面版
+- [ ] #12 [v3.0 backlog] nexu-io / Comment mode / 多格式匯出
+
+---
+
 ## [2026-04-28] Tier 1 Sprint 1 完成：prompt gallery + HTML loader 全到位
 
 ### 本次完成

@@ -40,28 +40,46 @@
 
 ### 優先順序
 
-#### Sprint 1 verification（Sprint 1 已完成資料層 + loader，UI 接線下一步做）
+#### Sprint 1.5（已有完整計劃書：[`docs/PLAN-sprint-1.5.md`](docs/PLAN-sprint-1.5.md)）
 
-**Step 6**：把 gallery 資料接到 4 區塊 UI
-- 在 React 內建 `useGallery()` hook，`industries` chip 改成跨行業選項（律師 / 教師 / 會計師 / 設計 / 行銷 / ...）
-- 區塊 3「製圖方式」子頁籤展示對應類別 prompts（從 FORMA_GALLERY 拉，按 industries 過濾）
-- 點 prompt 後注入 textarea 作 starter
-- 用 Playwright 跑 11 步互動測試（同 v1.0 的 health-check）
+按計劃書章節順序：
 
-**Step 7**：實際 SKILL 安裝測試
-- 在另一台 / 另一個 Claude Code 跑 `/plugin install forma-studio@zheyangzhao`
-- 驗證 SKILL.md frontmatter 被正確讀取
-- 同步 Codex `$skill-installer install` 流程
+**B（最優先）**：Sprint 1 verification — gallery 接到 React 4 區塊 UI（task #8）
+- `useGallery()` hook + industries chip 過濾 + 區塊 3「📚 範例庫」子分頁 + 點 prompt 注入 textarea + Playwright 11 步測試
+- 詳見 PLAN-sprint-1.5 §二
 
-#### Sprint 2：Tier 2 PyQt6 桌面版（建議 3-4 週）
+**A**：EvoLinkAI 整合（task #9）
+- 抓 `gpt_image_2_prompt.json` + 篩選 30-50 條跨行業適用 + `tools/build_gallery_evolink.py`
+- 預期 gallery 從 66 → 100-115 條
+- 詳見 PLAN-sprint-1.5 §三
 
-按 SDD 章節 4.1 / 4.2 / 4.3 順序：
+**Tier 1.6**：Claude 一鍵增強鈕（task #10）
+- 在 prompt 輸出旁加「✨ AI 增強」鈕，呼叫 GPT-4o-mini 套 craft.md §19 audit
+- 詳見 PLAN-sprint-1.5 §四
+
+**Sprint 1.5 收尾**：tag `v2.5-sprint-1.5`、commit、push
+
+#### Sprint 2：Tier 2 PyQt6 桌面版（task #11，建議 3-4 個 session）
+
+按 SDD-v2.5 章節 4 順序：
 1. `desktop/app/api/openai_client.py`：擴充 `client.images.edit()` 支援
 2. `desktop/app/widgets/quality_dial.py`：成本撥盤
 3. `desktop/app/widgets/reference_drop_zone.py` + `mask_uploader.py`：edit UI
 4. `desktop/app/widgets/image_edit_panel.py`：整合上述三者
 5. `desktop/app/utils/design_memory.py`：DESIGN.md parser
 6. `desktop/app/pages/brand_settings_tab.py`：DESIGN.md GUI 編輯器
+
+#### v3.0 backlog（task #12，目前不實作）
+
+- 借鑑 nexu-io/open-design 的 design-systems markdown 格式（擴充既有 12 個品牌庫）
+- Comment mode（點元素改局部）
+- 多格式匯出（HTML / PDF / PPTX / ZIP / Markdown）
+- 整碗端走 nexu-io **不適合**（架構衝突，Vite + Express daemon vs 單檔 HTML / PyQt6）
+
+#### 後續延伸
+
+- 實際 SKILL 安裝測試：在另一台機器跑 `/plugin install forma-studio@zheyangzhao` 驗證
+- 同步 Codex `$skill-installer install` 流程
 
 #### Sprint 2：Tier 2 PyQt6 桌面版（建議 3-4 週）
 
