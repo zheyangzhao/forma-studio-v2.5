@@ -4,6 +4,42 @@
 
 ---
 
+## [2026-04-29] v3.0 backlog 評估報告（Codex 寫，666 行 / 24 KB）
+
+### 工作流程
+1. **Codex CLI 規劃**：產出 `docs/research/v3.0-backlog-evaluation.md`
+2. 不立刻實作（v3.0 是 research/decision doc，不是 implementation PLAN）
+
+### 三項評估結論
+| Backlog | 推薦 | ROI | 工時 | v3.0 立場 |
+|---|---|---:|---:|---|
+| A. nexu-io design-systems markdown | 有條件做 | 高 | 18-28h | 擴充 v2.5 schema 子集，不替換 |
+| B. Comment mode | 部分做 | 中 | 36-58h | 只做 Web HTML preview prototype |
+| C. 多格式匯出 | 做 | 高 | 28-46h | 先 PDF + Markdown，PPTX 第二階段 |
+
+### v3.0 路線（評估報告 §1.2）
+```
+必做：DESIGN.md schema 擴充 + Markdown/PDF export
+條件做：Web Comment mode prototype + PPTX export
+不做：完整替換 schema、桌面自動 DOM comment、ZIP/HTML 作必做項
+```
+
+### 4 個 milestone
+- M1：DESIGN.md schema 擴充（18-28h，向後相容、不退步）
+- M2：Markdown + PDF export MVP（28-46h）
+- M3：Web Comment mode prototype（36-58h）
+- M4：PPTX export spike（20-34h）
+
+### 一句話判斷
+> v3.0 要把 Forma Studio 從「會產 prompt」推進到「能穩定交付」，不要急著變成完整設計平台。
+
+### 下一步
+- 用戶決定要不要啟動 v3.0（看評估報告）
+- 啟動時：先請 Codex 寫 `docs/PLAN-sprint-3.md`（依評估報告 §五推薦路線）
+- 嚴守紀律：規劃 → 寫 → review → 測試
+
+---
+
 ## [2026-04-29] Sprint 2D 補完：Codex 事後 review 抓 2 Critical + 3 Major + 3 Minor 全修（pytest 24 → 40）
 
 ### 補回流程紀律

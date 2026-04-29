@@ -69,12 +69,14 @@
 5. `desktop/app/utils/design_memory.py`：DESIGN.md parser
 6. `desktop/app/pages/brand_settings_tab.py`：DESIGN.md GUI 編輯器
 
-#### v3.0 backlog（task #12，目前不實作）
+#### v3.0 評估報告已就緒（`docs/research/v3.0-backlog-evaluation.md`）
 
-- 借鑑 nexu-io/open-design 的 design-systems markdown 格式（擴充既有 12 個品牌庫）
-- Comment mode（點元素改局部）
-- 多格式匯出（HTML / PDF / PPTX / ZIP / Markdown）
-- 整碗端走 nexu-io **不適合**（架構衝突，Vite + Express daemon vs 單檔 HTML / PyQt6）
+3 項 backlog 評估結論：
+- **A. nexu-io design-systems markdown**：有條件做（18-28h，擴充 v2.5 schema 子集，不替換）
+- **B. Comment mode**：部分做（36-58h，只做 Web HTML preview prototype）
+- **C. 多格式匯出**：做（28-46h，先 PDF + Markdown）
+
+v3.0 啟動前必先請 Codex 寫 `docs/PLAN-sprint-3.md`（依評估報告 §五推薦路線）；嚴守「規劃 → 寫 → review → 測試」紀律。
 
 #### 後續延伸
 
