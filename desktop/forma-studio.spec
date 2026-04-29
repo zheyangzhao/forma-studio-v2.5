@@ -17,6 +17,8 @@ a = Analysis(
     datas=[
         # 把 web/prompt-library 帶進去（gallery JSON 與桌面版同 source）
         (str(ROOT.parent / "web" / "prompt-library"), "prompt-library"),
+        # v3.0 Sprint 3C：PDF export 需要的中文字型（OFL 1.1）
+        (str(ROOT / "assets" / "fonts"), "assets/fonts"),
     ],
     hiddenimports=[
         "app",
@@ -35,6 +37,10 @@ a = Analysis(
         "keyring.backends.macOS",
         "keyring.backends.Windows",
         "keyring.backends.SecretService",
+        # v3.0 Sprint 3C
+        "reportlab",
+        "reportlab.pdfbase",
+        "reportlab.pdfbase.ttfonts",
     ],
     hookspath=[],
     hooksconfig={},

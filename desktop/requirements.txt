@@ -5,6 +5,9 @@ PyQt6==6.11.0
 httpx==0.28.1
 keyring==25.7.0
 
+# v3.0 Sprint 3C：PDF export
+reportlab==4.5.0
+
 # Tier 2C 之後會加：pdfplumber、python-docx（DESIGN.md 進階解析）
 # 暫定 2A 不需要
 

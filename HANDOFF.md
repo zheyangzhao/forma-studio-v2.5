@@ -11,7 +11,9 @@
 | SDD v2.5 規格書 | ✅ 定稿 | `docs/SDD-v2.5-integration-upgrade.md`（1005 行） |
 | Web 版升級（Tier 1 + Tier 1.5） | 🟢 **Sprint 1.5 全部完成** | gallery **116** 條 + SKILL.md + craft.md + HTML loader + UI 接線 + AI 增強鈕（28 步 Playwright 全 PASS、tag `v2.5-sprint-1.5`）|
 | 桌面版升級（Tier 2） | 🟢 Sprint 2A+2B+2C+2D 完成 | 13 個 .py / 4 tab / pytest 24 PASS / unsigned .app 80MB build 成功 / GitHub Actions CI workflow 就緒；簽名留給用戶 Apple Developer ID |
-| **v3.0 Sprint 3A**（schema 擴充） | 🟢 完成 | DesignMemory +4 欄位（spacing/components/motion/voice）/ parser 9 區塊 / GUI ScrollArea + GroupBox / pytest 40 → **50** PASS / v2.5 完全向後相容 |
+| **v3.0 Sprint 3A**（schema 擴充） | 🟢 完成 | DesignMemory +4 欄位 / pytest 40→50 |
+| **v3.0 Sprint 3B**（Markdown export） | 🟢 完成 | exporters/ 套件 + Markdown 匯出鈕 / YAML frontmatter + sidecar PNG / pytest 50→60 |
+| **v3.0 Sprint 3C**（PDF export） | 🟢 完成 | reportlab + Noto Sans TC TTF（11.9MB OFL） + PDF 匯出鈕 / cover+image+prompt+memory+attribution+footer / pytest 60→**67** |
 | v3.0 觀望項（Tier 3） | ⏸ Backlog | Comment mode / 多格式匯出 |
 
 ---

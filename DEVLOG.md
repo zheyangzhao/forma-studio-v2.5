@@ -4,6 +4,52 @@
 
 ---
 
+## [2026-04-29] v3.0 Sprint 3C 完成：PDF export（M2 Phase 2，pytest 60 → 67）
+
+### 工作流程
+1. Codex 規劃：PLAN-sprint-3 §四（reportlab + Noto Sans TC）
+2. Claude 寫程式：pdf_exporter.py + 字型 bundling + GUI 按鈕 + 7 test
+3. Codex Code Review：0 Critical + 1 Major + 2 Minor 全修
+4. pytest：67 PASS（v2.5 既有 60 不退步 + Sprint 3C 新 7）
+
+### 開發踩雷
+- 第一次下載 OTF（PostScript outlines）→ reportlab `TTFont` 不支援 → 換 TTF Variable Font（11.9 MB）
+- 中途 macOS file lock 觸發 EPERM 連續 fail（ScheduleWakeup 60 秒後恢復）
+
+### Codex 抓的（全修）
+- **Major**：`_memory_lines` 缺 v2.5 Brand Identity 欄位（project_name/brand_name/industry/audience）→ 補
+- **Minor 1**：image 後缺 PageBreak（PLAN §4.2 Page 1 cover / Page 2+ prompt）→ 加 PageBreak
+- **Minor 2**：`_safe_title` 對 whitespace-only project_name 沒 strip → 修
+
+### 已交付
+- `desktop/app/utils/exporters/pdf_exporter.py`（~330 行）
+  - PDFExporter class + ExportMetadata + export_pdf
+  - A4 / 18mm margin / NotoSansTC font
+  - cover：title + metadata table（created_at/schema/quality/brand/industry/audience）
+  - image flowable（max width = page content / max height 110mm）+ PageBreak
+  - Prompt section（mono style + light gray background）
+  - Design Memory section（v2.5 全 + v3 4 欄位）
+  - Source Attribution section
+  - footer（8pt 頁碼 + timestamp）
+- `desktop/assets/fonts/NotoSansTC-Regular.ttf`（11.9 MB，OFL 1.1）
+- `desktop/forma-studio.spec`：datas 加 assets/fonts/、hiddenimports 加 reportlab
+- `desktop/requirements.txt`：加 reportlab==4.5.0
+- `desktop/app/widgets/image_edit_panel.py`：加「匯出 PDF」按鈕 + handler（FileNotFoundError 友善訊息）
+- `desktop/tests/test_pdf_exporter.py`（7 test，含 missing font / writes file / metadata table / button state）
+
+### 規模變化
+- pytest：60 → **67** (+7)
+- 桌面版 .py 數：18（exporters/ 套件 +1）
+- assets：+ 11.9 MB Noto Sans TC TTF
+- 預估打包後 .app 體積：80 MB → ~92 MB
+
+### 待處理（v3.0 收尾）
+- [ ] Sprint 3D / 3E（outline only，PLAN 已寫）— v3.0.5+ 視用戶反饋啟動
+- [ ] 重 build .app 確認新 spec 字型 bundling
+- [ ] 用戶手動真機驗收：launch GUI + 實際匯出 Markdown / PDF
+
+---
+
 ## [2026-04-29] v3.0 Sprint 3B 完成：Markdown export（M2 Phase 1，pytest 50 → 60）
 
 ### 工作流程

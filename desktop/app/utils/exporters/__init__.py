@@ -3,5 +3,14 @@ from app.utils.exporters.markdown_exporter import (
     MarkdownExporter,
     export_markdown,
 )
+from app.utils.exporters.pdf_exporter import (
+    PDFExporter,
+    export_pdf,
+)
 
-__all__ = ["MarkdownExporter", "export_markdown"]
+__all__ = [
+    "MarkdownExporter",
+    "export_markdown",
+    "PDFExporter",
+    "export_pdf",
+]
