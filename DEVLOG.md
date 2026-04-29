@@ -4,6 +4,49 @@
 
 ---
 
+## [2026-04-29] Sprint 1.5 §A 完成：EvoLinkAI 整合 · Playwright 8/8 PASS · gallery 從 66 → 116
+
+### 工作流程
+1. **Codex CLI 規劃**（既有 PLAN-sprint-1.5 §三）
+2. **Claude 寫程式**：
+   - 上游偏差：PLAN 寫的 `gpt_image_2_prompt.json` 不存在（404），實際資料在 `data/ingested_tweets.json`（meta 索引）+ `README.md`（5723 行 prompt 主文）
+   - 改解析 README.md 的 `### Case N: TITLE (by @AUTHOR)` heading + ` ``` ` 區塊
+   - 新增 `tools/build_gallery_evolink.py`（解析 + 5 類別輸出）
+   - 修改 `tools/inline_gallery.py`（補 cat-level source + 多 source `sources` array）
+   - 修改 `web/forma-studio.html` 的 `SUB_TO_GALLERY_SLUGS`（加 evolink-* mapping，否則 4 個 sub 都不顯示 EvoLink 條目）
+3. **Codex CLI Code Review** → 抓 2 個 Major：
+   - `merge_index()` 重跑不穩定（重跑會把 evolink count 算進 wuyo_count）→ 已修
+   - UI industries 不符 PLAN（多了 marketing）→ 已修
+4. **Codex CLI 跑 Playwright**：
+   - 第 1 跑：6/8（spec 預估錯 marketing+image 條目上限、SUB_TO_GALLERY_SLUGS 還沒加 evolink）
+   - 第 2 跑：codex 卡 stdin（已 kill）；改用 `npx --prefix /tmp/playwright_test playwright test` 直接執行
+   - 結果：**8/8 PASS、0 console error、3.6 秒**
+
+### 規模變化
+- gallery：66 → **116** 條（PLAN 預估 100-115，超 1 條可接受）
+- categories：12 → **17**（+5 EvoLink 類別）
+- sources：1（wuyoscar）→ **2**（wuyoscar 66 + EvoLinkAI 50）
+- HTML size：217KB → **293KB**（+76KB inline JSON + JSX）
+
+### 已交付檔案
+- `tools/build_gallery_evolink.py`：274 行（新增）
+- `tools/inline_gallery.py`：補 cat-level source + sources array
+- `web/prompt-library/evolink-{ecommerce,ad-creative,poster,ui,comparison}.json`：5 檔，每檔 10 條
+- `web/prompt-library/gallery-index.json`：加 sources、append 5 evolink categories
+- `web/forma-studio.html`：SUB_TO_GALLERY_SLUGS 加 evolink-* mapping
+- `.playwright/sprint1.5A-verify.spec.js`：8 步驗證 spec（CC0 / Codex 寫）
+
+### 開發踩雷紀錄
+- PLAN 假設上游有結構化 JSON，實際只有 README.md（必須 markdown parser）
+- `SUB_TO_GALLERY_SLUGS` 沒加 evolink-* slug → EvoLink 條目根本無法顯示在 4 個 sub 裡（review 沒抓到、Playwright 抓到）
+- Python build script 我寫錯 `/* */` 注釋（誤套 v2.5 React 規範），改回 `#`
+- codex CLI 的 stdin 模式可能會 stuck（觀察值，已用 npx 直接跑作為 fallback）
+
+### 待處理（Sprint 1.5 剩 1 項）
+- [ ] #10 [Tier 1.6] Claude 一鍵增強鈕
+
+---
+
 ## [2026-04-29] Sprint 1.5 §B 完成：gallery 接 4 區塊 UI · Playwright 11/11 PASS
 
 ### 工作流程（嚴格遵照用戶指示）

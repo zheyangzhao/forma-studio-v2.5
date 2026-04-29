@@ -9,7 +9,7 @@
 | 模組 | 版本 | 狀態 |
 |---|---|---|
 | SDD v2.5 規格書 | ✅ 定稿 | `docs/SDD-v2.5-integration-upgrade.md`（1005 行） |
-| Web 版升級（Tier 1） | 🟢 Sprint 1 + 1.5 §B 完成 | gallery 66 條 + SKILL.md + craft.md + HTML loader + UI 接線（11/11 Playwright PASS） |
+| Web 版升級（Tier 1） | 🟢 Sprint 1 + 1.5 §B + §A 完成 | gallery **116** 條（wuyoscar 66 + EvoLinkAI 50）+ SKILL.md + craft.md + HTML loader + UI 接線（11/11 + 8/8 Playwright PASS）|
 | 桌面版升級（Tier 2） | ❌ 未開始 | edit endpoint / quality 撥盤 / DESIGN.md 待實作 |
 | v3.0 觀望項（Tier 3） | ⏸ Backlog | Comment mode / 多格式匯出 |
 
