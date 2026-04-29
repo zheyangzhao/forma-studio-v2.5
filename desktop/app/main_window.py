@@ -20,13 +20,13 @@ from PyQt6.QtWidgets import (
     QPushButton,
     QStatusBar,
     QTabWidget,
-    QTextEdit,
     QVBoxLayout,
     QWidget,
 )
 
 from app.api import key_store
-from app.widgets.quality_dial import QualityDial
+from app.api.openai_client import OpenAIClient
+from app.widgets.image_edit_panel import ImageEditPanel
 
 
 class ApiKeyBar(QWidget):
@@ -116,7 +116,7 @@ class MainWindow(QMainWindow):
         self.project_root = project_root
         self.api_key_bar = ApiKeyBar(self)
         self.tabs = QTabWidget(self)
-        self.quality_dial = QualityDial(self)
+        self.image_edit_panel: ImageEditPanel | None = None
         self._build_ui()
         self._connect_signals()
         self._apply_theme()
@@ -161,16 +161,13 @@ class MainWindow(QMainWindow):
         return PlaceholderTab("Prompt Gallery", body, self)
 
     def _build_image_tab(self) -> QWidget:
-        page = QWidget(self)
-        layout = QVBoxLayout(page)
-        prompt = QTextEdit(page)
-        prompt.setPlaceholderText(
-            "輸入圖像 prompt；Sprint 2B 會接 ImageEditPanel"
-            "（多參考圖 + mask + edit endpoint）"
+        # Sprint 2B：ImageEditPanel 取代之前的 placeholder
+        self.image_edit_panel = ImageEditPanel(
+            client_factory=self._create_openai_client, parent=self
         )
-        layout.addWidget(prompt, 1)
-        layout.addWidget(self.quality_dial)
-        return page
+        self.image_edit_panel.image_generated.connect(self._on_image_generated)
+        self.image_edit_panel.error_raised.connect(self._on_image_error)
+        return self.image_edit_panel
 
     def _build_brand_tab(self) -> QWidget:
         return PlaceholderTab(
@@ -190,7 +187,7 @@ class MainWindow(QMainWindow):
     def _connect_signals(self) -> None:
         self.api_key_bar.key_changed.connect(self._on_api_key_changed)
         self.api_key_bar.key_cleared.connect(self._on_api_key_cleared)
-        self.quality_dial.quality_changed.connect(self._on_quality_changed)
+        # quality_changed signal 由 ImageEditPanel 內部 QualityDial 處理
 
     def _apply_theme(self) -> None:
         # 對齊 web 版深色主題（slate-900 系）
@@ -231,5 +228,16 @@ class MainWindow(QMainWindow):
     def _on_api_key_cleared(self) -> None:
         self.statusBar().showMessage("API Key 已清除", 3000)
 
-    def _on_quality_changed(self, quality: str) -> None:
-        self.statusBar().showMessage(f"Quality: {quality}", 2000)
+    def _create_openai_client(self) -> OpenAIClient:
+        # Sprint 2B：image_edit_panel 透過此 factory 取得 client
+        # 每次呼叫產一個新 client（含獨立 httpx.AsyncClient），完成後 close
+        key = key_store.get_key()
+        if not key:
+            raise RuntimeError("請先設定 API Key（鑰匙圈）")
+        return OpenAIClient(key)
+
+    def _on_image_generated(self, data: bytes) -> None:
+        self.statusBar().showMessage(f"圖像就緒：{len(data)} bytes（session cache）", 5000)
+
+    def _on_image_error(self, message: str) -> None:
+        self.statusBar().showMessage(f"⚠️ {message}", 5000)

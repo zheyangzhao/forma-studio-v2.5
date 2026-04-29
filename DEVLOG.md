@@ -4,6 +4,51 @@
 
 ---
 
+## [2026-04-29] Sprint 2B 完成：edit endpoint UI（reference drop / mask / image edit panel）
+
+### 工作流程
+1. Codex 規劃：PLAN-sprint-2.md §三
+2. Claude 寫程式：3 個 widget + main_window 接線
+3. Codex Code Review：抓 4 Major + 2 Minor，皆已修
+4. AST parse：4/4 PASS、import graph DAG
+
+### Codex review 抓到的 4 Major（已全修）
+1. **QThread cleanup 順序錯**：worker.deleteLater 應在 worker.finished/error 同步排程，不該等 thread.finished → 改用標準 `worker.finished → worker.deleteLater + thread.deleteLater`
+2. **closeEvent 沒處理執行中 thread**：補 `closeEvent` 內 `thread.quit() + thread.wait(2000)` 避免 "Destroyed while running"
+3. **MaskUploader.set_mask invalid 時不清舊 mask**：改成 invalid 直接清 `_mask_path` + emit None
+4. **submit 前沒重驗 mask**：image_edit_panel `_on_edit_clicked` 加 `validate_png_alpha(mask)` 重驗（檔案可能被外部刪改）
+
+### Minor 1 也修了
+validation error 用 `modal=False`（不開 QMessageBox），API error 才彈 modal — 方便未來 pytest-qt smoke test
+
+### 已交付檔案
+- `desktop/app/widgets/reference_drop_zone.py`（~155 行）：drag-drop 最多 4 張、PNG/JPEG/WebP、4 個縮圖 slot + 移除鈕
+- `desktop/app/widgets/mask_uploader.py`（~80 行）：QImage 驗 PNG alpha + invalid 清舊 state
+- `desktop/app/widgets/image_edit_panel.py`（~210 行）：整合 prompt + reference + mask + quality + 兩按鈕（生成新圖／修改既有圖）
+  - QThread + _OpenAIWorker（async coroutine 包進 worker thread）
+  - closeEvent 處理執行中 thread
+  - validation/API error 分流（modal=False/True）
+- `desktop/app/main_window.py`：`_build_image_tab()` 改回傳 ImageEditPanel、新增 `_create_openai_client()` factory（從 keyring 取 key）
+
+### 待驗收（venv install 後）
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r desktop/requirements.txt
+QT_QPA_PLATFORM=offscreen python -c "
+import sys; sys.path.insert(0, 'desktop')
+from app.main_window import MainWindow
+print('imports OK')
+"
+python desktop/main.py     # 主視窗開啟
+```
+
+### 待處理
+- [ ] Sprint 2B pytest-qt 測試（5 個 test，PLAN §3.5）
+- [ ] Sprint 2C：DESIGN.md（design_memory.py + brand_settings_tab.py）
+- [ ] Sprint 2D：PyInstaller 打包
+
+---
+
 ## [2026-04-29] Sprint 2A 完成：PyQt6 桌面版基礎設施
 
 ### 工作流程
