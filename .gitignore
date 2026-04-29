@@ -29,3 +29,8 @@ api-keys.*
 # v2.5 不採用 workflow-kit；保留 state 檔僅為 hook 相容
 workflow-kit/state/active-step.json
 workflow-kit/state/deadlock-tracker.json
+
+# Playwright artifact：保留 spec 入版本控、忽略 screenshots / report / node_modules / test-results
+.playwright/*
+!.playwright/*.spec.js
+!.playwright/*.config.js

@@ -4,6 +4,38 @@
 
 ---
 
+## [2026-04-29] Sprint 1.5 §B 完成：gallery 接 4 區塊 UI · Playwright 11/11 PASS
+
+### 工作流程（嚴格遵照用戶指示）
+1. **Codex CLI 規劃** → `docs/PLAN-sprint-1.5.md` §二
+2. **Claude 寫程式** → 6 個 Edit 改 `web/forma-studio.html`
+3. **Codex CLI Code Review** → 0 Critical / 0 Major / 0 Minor，「可直接 commit」
+4. **Codex CLI 跑 Playwright 11 步測試** → 修兩處 spec 邏輯後，**11/11 PASS、0 console error、5.4 秒**
+
+### 本次完成
+- 頂層新增：INDUSTRY_CHIPS（10 跨行業）/ SUB_TO_GALLERY_SLUGS / GALLERY_SIZE_TO_RATIO / useGallery() / GalleryPromptList
+- DesignTab 內：industries / showGallery state + applyGalleryPrompt handler
+- Section 2：適用行業 chip block（gallery.enabled 才顯示）
+- Section 3：secondary controls（手動設定/📚 範例庫）+ 範例庫展開時 render GalleryPromptList
+- 行為：點 prompt → 自動切回 image sub + 注入 desc + 切 size + 關 gallery + goStep(3)
+- HTML 從 217KB → 224KB（+7KB JSX）
+
+### Playwright spec 修正紀錄（兩處 spec 邏輯 bug，與程式碼無關）
+- Step 07：原 spec assert「套用」按鈕必存在；但 industries=legal + sub=image 命中 0 條 → 改驗證空狀態 fallback
+- Step 11：原 spec 在 Step 9 後找複製鈕（畫面已無）→ 改：切 info sub + 重開範例庫 + 點 GalleryPromptList 內 CopyBtn
+- 加 `permissions: ['clipboard-read','clipboard-write']`：headless Chromium 預設拒絕 clipboard write，CopyBtn 的 setOk(true) 不執行
+
+### 已交付檔案
+- `web/forma-studio.html`：+153 行（v2.5 PROMPT GALLERY HELPERS + UI 接線）
+- `.playwright/sprint1-verify.spec.js`：11 步驗證 spec
+- `.gitignore`：加 .playwright artifact 過濾
+
+### 待處理（Sprint 1.5 剩兩項）
+- [ ] #9 [A] EvoLinkAI prompt 庫整合（gallery 從 66 → 100-115 條）
+- [ ] #10 [Tier 1.6] Claude 一鍵增強鈕
+
+---
+
 ## [2026-04-29] Sprint 1.5 計劃書定稿（B + A + Tier 1.6）
 
 ### 本次完成
