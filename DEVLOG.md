@@ -4,6 +4,40 @@
 
 ---
 
+## [2026-04-29] 🎉 Sprint 1.5 全部完成：B + A + Tier 1.6（tag v2.5-sprint-1.5）
+
+### Tier 1.6：Claude 一鍵增強鈕
+
+工作流程
+1. **Codex CLI 規劃**：PLAN-sprint-1.5 §四 已就緒
+2. **Claude 寫程式**：4 個 Edit（頂層 helpers + OutBox prop + DesignTab 2 處 caller）
+3. **Codex CLI Code Review**：規格遵循度 A、0 Critical / 0 Major、1 Minor（disabled button title 兼容性備註）
+4. **Playwright 驗證**：自寫 spec 9 步、PASS、3.8 秒
+
+### Sprint 1.5 整體
+
+| Section | 任務 | Playwright |
+|---|---|---|
+| §B | gallery 接 4 區塊 UI | 11/11 PASS |
+| §A | EvoLinkAI 整合（gallery 66 → 116） | 8/8 PASS |
+| §四 Tier 1.6 | Claude 一鍵增強鈕 | PASS |
+
+### 規模變化（Sprint 1 起 → Sprint 1.5 完）
+
+| 指標 | Sprint 1 起 | 1.5 完 |
+|---|---|---|
+| gallery total | 0 | **116** |
+| categories | 0 | **17** |
+| sources | 0 | **2** |
+| HTML size | 148 KB | **293 KB** |
+| Playwright spec | 0 | **3 個 / 28 步** |
+
+### 後續
+- [ ] #11 [Tier 2 Sprint 2] PyQt6 桌面版升級
+- [ ] #12 [v3.0 backlog] nexu-io / Comment mode / 多格式匯出
+
+---
+
 ## [2026-04-29] Sprint 1.5 §A 完成：EvoLinkAI 整合 · Playwright 8/8 PASS · gallery 從 66 → 116
 
 ### 工作流程
