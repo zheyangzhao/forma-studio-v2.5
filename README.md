@@ -11,10 +11,12 @@
 | 項目 | 狀態 |
 |---|---|
 | SDD v2.5 規格書 | ✅ 定稿（[`docs/SDD-v2.5-integration-upgrade.md`](docs/SDD-v2.5-integration-upgrade.md)） |
-| Tier 1：Web 版升級 | ✅ 完成（gallery 116 條 / 17 類 / 雙 source / SKILL.md / craft.md / Claude 一鍵增強鈕，28 步 Playwright PASS，tag `v2.5-sprint-1.5`） |
-| Tier 2：PyQt6 桌面版 | ✅ Sprint 2A+2B+2C 完成（13 個 .py / 4 tab GUI / DESIGN.md parser，24 pytest PASS，headless smoke PASS） |
-| Tier 2D：打包 | 🟡 unsigned .app 可 build（80MB），簽名 + notarize 需 Apple Developer ID |
-| Tier 3：v3.0 評估 | ⏸ Backlog（Comment mode / 多格式匯出 / nexu-io design-systems 借鑑） |
+| Tier 1：Web 版升級 | ✅ 完成（116 條 prompt / 17 類 / 雙 CC BY 4.0 source / SKILL.md / craft.md / Claude 一鍵增強鈕；28 步 Playwright PASS，tag `v2.5-sprint-1.5`） |
+| Tier 2：PyQt6 桌面版 | ✅ Sprint 2A-2D 完成（18 個 .py / 4 tab / Markdown+PDF export / unsigned .app 80MB，tag `v2.5-sprint-2`） |
+| Tier 3：v3.0 schema + Markdown + PDF export | ✅ Sprint 3A+3B+3C 完成（DESIGN.md 9 區塊 / Markdown sidecar PNG / PDF cover+image+memory，tag `v3.0-sprint-3c`） |
+| 全套 pytest | ✅ **67 PASS**（design_memory 17 + quality_dial 8 + widgets 7 + openai_client 10 + image_edit_panel 5 + smoke 2 + exporters 10 + pdf_exporter 7 + 1 v3 mismatch placeholder） |
+| Production hardening | 🟡 進行中（README 同步、.app 重 build 驗證、PyQt6 GPL 授權策略、簽名 + notarize 待 Apple Developer ID） |
+| v3.0.5 Backlog | ⏸ Sprint 3D Comment mode（outline）/ Sprint 3E PPTX export（outline） |
 
 ### Web 版快速啟動
 

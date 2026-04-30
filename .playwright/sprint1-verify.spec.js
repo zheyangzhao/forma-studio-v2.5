@@ -53,7 +53,8 @@ test('Sprint 1.5 B - gallery 接 4 區塊 UI 11 步驗證', async ({ page }) => 
       lexicalTotal: typeof FORMA_GALLERY !== 'undefined' ? FORMA_GALLERY?.total_count : undefined,
       lexicalEnabled: typeof ENABLE_PROMPT_GALLERY !== 'undefined' ? ENABLE_PROMPT_GALLERY : undefined,
     }));
-    expect(meta.total).toBe(66);
+    /* v2.5 §A 整合 EvoLinkAI 後 total_count 升至 116（66 wuyoscar + 50 EvoLink） */
+    expect(meta.total).toBe(116);
     expect(meta.enabled).toBe(true);
   });
 
