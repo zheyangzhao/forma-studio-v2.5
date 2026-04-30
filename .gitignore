@@ -42,6 +42,13 @@ venv/
 # Sprint 2 smoke 截圖（保留 smoke_launch.py，忽略 PNG artifacts）
 desktop/tests/smoke-artifacts/
 
+# v3.0.5 GUI walkthrough 截圖
+desktop/tests/walkthrough-artifacts/
+
+# pytest results
+test-results/
+.pytest_cache/
+
 # PyInstaller build artifacts
 desktop/build/
 desktop/dist/
