@@ -1,0 +1,28 @@
+# v2.5 不採用 workflow-kit；保留 state 檔僅為 hook 相容
+workflow-kit/state/active-step.json
+workflow-kit/state/deadlock-tracker.json
+
+# Playwright artifact：保留 spec 入版本控、忽略 screenshots / report / node_modules / test-results
+.playwright/*
+!.playwright/*.spec.js
+!.playwright/*.config.js
+
+# Python venv（桌面版）
+.venv/
+venv/
+
+# Sprint 2 smoke 截圖（保留 smoke_launch.py，忽略 PNG artifacts）
+desktop/tests/smoke-artifacts/
+
+# v3.0.5 GUI walkthrough 截圖
+desktop/tests/walkthrough-artifacts/
+
+# pytest results
+test-results/
+.pytest_cache/
+
+# PyInstaller build artifacts
+desktop/build/
+desktop/dist/
+*.egg-info/
+.eggs/

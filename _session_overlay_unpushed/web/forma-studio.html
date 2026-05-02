@@ -1,0 +1,27 @@
+.sub-off:hover{ border-color:#475569; color:#cbd5e1; }
+</style>
+
+<!-- v2.5: prompt gallery placeholder（build-time 由 tools/inline_gallery.py 注入內容；空 {} 時自動 fallback 到 v1.0 行為）-->
+<script id="forma-gallery" type="application/json">{}</script>
+</head>
+<body class="scroll-smooth">
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useCallback, useContext, createContext, useRef } = React;
+
+/* ── 全域 API Key Context（session 期間共用，不存 localStorage）── */
+const ApiCtx = createContext({ key:'', setKey:()=>{} });
+
+/* ── v2.5: Prompt Gallery loader（DOM-based，保持單檔特性）── */
+/* 讀 <script id="forma-gallery"> 區塊；空或解析失敗 → 回退 v1.0 行為 */
+const FORMA_GALLERY = (() => {
+  try {
+    const el = document.getElementById('forma-gallery');
+    const data = JSON.parse(el?.textContent || '{}');
+    return (data && data.total_count > 0) ? data : null;
+  } catch (e) {
+    console.warn('[Forma Studio] prompt gallery 載入失敗，已回退 v1.0 行為', e);
+    return null;
+  }
+})();
+const ENABLE_PROMPT_GALLERY = !!FORMA_GALLERY;

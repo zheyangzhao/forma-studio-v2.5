@@ -1,0 +1,63 @@
+name: Desktop Build (macOS / Windows)
+
+# 對應 PLAN-sprint-2.md §七 Sprint 2D 打包
+# 目前手動觸發；未來可加 push tags v2.5-* 自動 build
+on:
+  workflow_dispatch:
+  # release:
+  #   types: [published]
+
+jobs:
+  build-macos:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v5
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        working-directory: desktop
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt pyinstaller
+      - name: Run pytest
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: |
+          cd desktop && python -m pytest tests/ -q
+      - name: Build .app
+        working-directory: desktop
+        run: |
+          python -m PyInstaller forma-studio.spec --clean --noconfirm
+      - name: Upload .app artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: forma-studio-mac-unsigned
+          path: desktop/dist/Forma Studio.app
+          retention-days: 14
+      # Sprint 2D 後續可加：codesign + notarize 步驟（需 Apple Developer ID secrets）
+
+  build-windows:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v5
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        working-directory: desktop
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt pyinstaller
+      - name: Build .exe
+        working-directory: desktop
+        run: |
+          python -m PyInstaller forma-studio.spec --clean --noconfirm
+      - name: Upload .exe artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: forma-studio-win-unsigned
+          path: desktop/dist/forma-studio
+          retention-days: 14

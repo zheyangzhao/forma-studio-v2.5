@@ -1,0 +1,19 @@
+# Forma Studio v2.5 桌面版依賴
+# 對應 PLAN-sprint-2.md §2.6
+
+PyQt6==6.11.0
+httpx==0.28.1
+keyring==25.7.0
+
+# v3.0 Sprint 3C：PDF export
+reportlab==4.5.0
+
+# Tier 2C 之後會加：pdfplumber、python-docx（DESIGN.md 進階解析）
+# 暫定 2A 不需要
+
+# 測試（可選）
+pytest==9.0.3
+pytest-qt==4.5.0
+pytest-asyncio==1.3.0
+pytest-mock==3.15.1
+respx==0.22.0

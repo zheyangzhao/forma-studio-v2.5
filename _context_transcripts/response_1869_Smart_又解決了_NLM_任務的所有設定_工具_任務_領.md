@@ -1,0 +1,1 @@
+Smart 又解決了 NLM 任務的所有設定（工具/任務/領域/框架/受眾/語言）。**這證實 Smart 同時取代了 Claude Design 與 NLM 的「設定階段」**。直接看生成的兩段 prompt。

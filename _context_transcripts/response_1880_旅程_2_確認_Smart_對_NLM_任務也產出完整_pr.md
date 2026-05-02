@@ -1,0 +1,1 @@
+旅程 2 確認：Smart 對 NLM 任務也產出完整 prompt，NLM tab 5 step 變成「進階精修」用。**我已收集到足夠觀察**，先寫 Claude 的審視文件，等 Codex 寫完再對比。

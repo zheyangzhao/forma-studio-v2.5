@@ -1,0 +1,1 @@
+Prompt Lab tab 完美：116 條 prompt、來源 filter、製圖方式 filter、17 類別 chips、卡片 grid、attribution。現在測搜尋 + 套用 → Claude Design。
